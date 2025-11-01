@@ -1,1 +1,2 @@
-import('./base.js'); import('./delaunay.js');
+import('./base.js');
+import('./delaunay.js');
