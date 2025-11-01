@@ -8,7 +8,7 @@ export default defineConfig({
     chunkSizeWarningLimit: 1024,
     rollupOptions: {
       input: {
-        portfolio: 'portfolio.html',
+        index: 'index.html',
         delaunay: 'delaunay-research-final-with-pdf.html',
         rain: 'rain-prediction-demo.html'
       }

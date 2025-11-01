@@ -1,49 +1,541 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Redirecting...</title>
-  <meta http-equiv="refresh" content="0; url=./portfolio.html" />
-  <link rel="canonical" href="./portfolio.html" />
-  <link rel="stylesheet" href="assets/css/base.css" />
-  <style>
-    :root {
-      color-scheme: dark;
-    }
-    body {
-      display: grid;
-      place-items: center;
-      min-height: 100vh;
-      margin: 0;
-      text-align: center;
-      background: #0a0a0a;
-      color: #ffffff;
-      font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-    }
-    a {
-      color: inherit;
-    }
-    .desc {
-      color: #cececf;
-      margin-top: 8px;
-    }
-  </style>
-  <script>
-    (function redirect() {
-      var href = './portfolio.html' + location.search + location.hash;
-      if (location.pathname.endsWith('/')) {
-        location.replace(location.pathname + 'portfolio.html' + location.search + location.hash);
-      } else {
-        location.replace(href);
-      }
-    })();
-  </script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Armando Albornoz · Software Engineer</title>
+    <meta name="description"
+        content="Software engineer and researcher blending formal mathematics with practical engineering to ship ML systems, computational geometry tooling, and polished product experiences.">
+    <meta property="og:title" content="Armando Albornoz · Software Engineer">
+    <meta property="og:description"
+        content="Software engineer and researcher blending formal mathematics with practical engineering to ship ML systems, computational geometry tooling, and polished product experiences.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://armandoalbornoz.dev/">
+    <meta property="og:image" content="/og-image.svg">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Armando Albornoz · Software Engineer">
+    <meta name="twitter:description"
+        content="Software engineer and researcher blending formal mathematics with practical engineering to ship ML systems, computational geometry tooling, and polished product experiences.">
+    <meta name="twitter:image" content="/og-image.svg">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preload"
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" as="style">
+
+
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap"
+        media="print" onload="this.media='all'">
+    <link rel="preload" href="assets/css/base.css" as="style">
+    <link rel="stylesheet" href="assets/css/base.css" media="print" onload="this.media='all'">
+    <link rel="preload" href="assets/css/portfolio.css" as="style">
+    <link rel="stylesheet" href="assets/css/portfolio.css" media="print" onload="this.media='all'">
+    <noscript>
+        <link rel="stylesheet"
+            href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap">
+        <link rel="stylesheet" href="assets/css/base.css">
+        <link rel="stylesheet" href="assets/css/portfolio.css">
+    </noscript>
+    <script type="module" src="/assets/js/portfolio.entry.js"></script>
 </head>
+
 <body>
-  <main>
-    <h1>Redirecting to Portfolio...</h1>
-    <p class="desc">If you are not redirected, <a href="./portfolio.html">click here</a>.</p>
-  </main>
+    <div class="cursor"></div>
+    <div class="cursor-follower"></div>
+
+    <div id="canvas-container"></div>
+
+    <div class="content-wrapper">
+        <nav>
+            <div class="logo">AA</div>
+            <ul class="nav-menu">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#experience">Experience</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#skills">Skills</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+            <div class="nav-actions">
+                <a href="/docs/armando-albornoz-resume.pdf" class="nav-cta" target="_blank" rel="noopener noreferrer">
+                    Resume
+                </a>
+                <a href="https://www.linkedin.com/in/armando-albornoz-2a7493285" class="nav-cta nav-cta--secondary"
+                    target="_blank" rel="noopener noreferrer">
+                    LinkedIn
+                </a>
+            </div>
+        </nav>
+
+        <section class="hero" id="home">
+            <h1 class="hero-title">Armando<br>Albornoz</h1>
+            <p class="hero-subtitle">Mathematics & Computer Science</p>
+            <div class="hero-roles">
+                <span class="role">SOFTWARE ENGINEER</span>
+                <span class="role">UNDERGRADUATE RESEARCHER</span>
+                <span class="role">PROBLEM SOLVER</span>
+            </div>
+            <div class="scroll-indicator">
+                <p class="scroll-text">SCROLL TO EXPLORE</p>
+                <div class="scroll-line"></div>
+            </div>
+        </section>
+
+        <section class="about-section" id="about">
+            <div class="about-content">
+                <span class="section-label">ABOUT ME</span>
+                <h2 class="about-text">
+                    Solving <span class="highlight">computational problems</span> through the art of <span
+                        class="highlight">formal reasoning</span><span class="stars">✦✦</span>
+                </h2>
+                <p class="about-description">
+                    I'm a software engineer with a unique foundation: my passion for problem-solving was sparked by a
+                    library book on mathematical proofs. What began as curiosity about formal reasoning evolved into a
+                    rigorous education in Mathematics and Computer Science at the University of Florida, where I learned
+                    to approach complex problems with both analytical precision and practical solutions.
+                </p>
+                <p class="about-description">
+                    Currently I am pursuing my M.S. in Computer Science at Georgia Institute of Technology. I bring
+                    hands-on
+                    experience in building production-ready systems, from end-to-end ML pipelines and deep learning
+                    models to computational geometry projects. Through undergraduate research experiences, I've
+                    developed strong skills in algorithmic problem-solving and have contributed to published work
+                    presented at academic symposiums.
+                </p>
+                <p class="about-description">
+                    What sets me apart is my ability to bridge theory and practice: I can design elegant algorithms,
+                    implement scalable solutions, and communicate complex ideas clearly. I'm looking for a team where I
+                    can apply this combination of deep technical skills and practical engineering to build products that
+                    genuinely matter.
+                </p>
+
+                <div class="education-grid">
+                    <div class="education-card">
+                        <h3>University of Florida</h3>
+                        <p class="degree">B.S. Computer Science & Mathematics</p>
+                        <p class="date">Aug 2022 to May 2025 | GPA: 3.92</p>
+                    </div>
+                    <div class="education-card">
+                        <h3>Georgia Institute of Technology</h3>
+                        <p class="degree">M.S. Computer Science</p>
+                        <p class="date">Jan 2026 to Dec 2027</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="experience-section" id="experience">
+            <span class="section-label">EXPERIENCE</span>
+            <div class="experience-grid">
+                <div class="experience-card">
+                    <div class="experience-header">
+                        <div>
+                            <h3 class="experience-title">Undergraduate Research</h3>
+                            <p class="experience-company">University of Florida</p>
+                        </div>
+                        <p class="experience-date">Jan 2025 to May 2025</p>
+                    </div>
+                    <div class="experience-description">
+                        <p>Research on refinement and angle optimization for order-2 Delaunay triangulations.</p>
+                        <ul>
+                            <li>Proposed and implemented a novel algorithm using 3D convex hulls to incrementally
+                                construct an order-2 triangulation</li>
+                            <li>Performed statistical analysis of angle distributions across various point sets</li>
+                            <li>Found evidence that refinement methods of order-1 triangulations generalize to order-2
+                                triangulations</li>
+                            <li>Developed visualization tools to display triangulations and angle distribution results
+                            </li>
+                        </ul>
+                        <div class="project-actions">
+                            <a href="/docs/delaunay-milestone.pdf" class="project-btn" target="_blank"
+                                rel="noopener noreferrer">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+                                    <polyline points="14 2 14 8 20 8"></polyline>
+                                    <line x1="16" y1="13" x2="8" y2="13"></line>
+                                    <line x1="16" y1="17" x2="8" y2="17"></line>
+                                </svg>
+                                Read Paper
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="experience-card">
+                    <div class="experience-header">
+                        <div>
+                            <h3 class="experience-title">Undergraduate Research</h3>
+                            <p class="experience-company">University of Florida</p>
+                        </div>
+                        <p class="experience-date">Oct 2023 to May 2024</p>
+                    </div>
+                    <div class="experience-description">
+                        <p>Mathematical research on metric space analysis.</p>
+                        <ul>
+                            <li>Co-authored a paper analyzing Hausdorff and Gromov-Hausdorff distances between metric
+                                spaces</li>
+                            <li>Contributed foundational definitions and proof structures supporting the main theorems
+                            </li>
+                            <li>Presented findings at the UF Research Math Symposium</li>
+                            <li>Published research on arXiv</li>
+                        </ul>
+                        <div class="project-actions">
+                            <a href="https://arxiv.org/pdf/2410.14938" class="project-btn" target="_blank"
+                                rel="noopener noreferrer">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+                                    <polyline points="14 2 14 8 20 8"></polyline>
+                                    <line x1="16" y1="13" x2="8" y2="13"></line>
+                                    <line x1="16" y1="17" x2="8" y2="17"></line>
+                                </svg>
+                                Read Paper
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="projects-section" id="projects">
+            <span class="section-label">SELECTED WORK</span>
+            <div class="projects-grid">
+                <div class="project-card">
+                    <div class="project-content">
+                        <h3 class="project-title">EmberAI</h3>
+                        <p class="project-tags">OpenAI, DeepSeek, Vue.js, Electron | Oct 2025 to Present</p>
+                        <div class="project-description">
+                            <p>An intelligent, fully animated desktop companion capable of real-time speech, chat, and
+                                gameplay.</p>
+                            <ul>
+                                <li>Integrating multimodal AI via OpenAI and DeepSeek APIs for speech synthesis and
+                                    emotion-aware dialogue</li>
+                                <li>Building cross-platform Electron + Vue.js interface with persistent on-screen
+                                    animation</li>
+                                <li>Goal: Deploy as Twitch streamer capable of engaging with audiences in real time</li>
+                            </ul>
+
+                        </div>
+                        <div class="project-actions">
+                            <a href="#coming-soon" class="project-btn">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <circle cx="12" cy="12" r="10"></circle>
+                                    <path d="M8 14s1.5 2 4 2 4-2 4-2"></path>
+                                    <line x1="9" y1="9" x2="9.01" y2="9"></line>
+                                    <line x1="15" y1="9" x2="15.01" y2="9"></line>
+                                </svg>
+                                Coming Soon
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <div class="project-content">
+                        <h3 class="project-title">Rain Prediction ML Pipeline</h3>
+                        <p class="project-tags">MLflow, DVC, Streamlit, PostgreSQL | Jul 2025 to Aug 2025</p>
+                        <div class="project-description">
+                            <p>End-to-end machine learning pipeline for rainfall prediction.</p>
+                            <ul>
+                                <li>Built modular, configuration-driven pipeline using Open-Meteo API data</li>
+                                <li>Developed ETL pipeline to PostgreSQL RDS instance</li>
+                                <li>Trained multiple estimators with DVC versioning and MLflow tracking</li>
+                                <li>Deployed Streamlit app serving real-time predictions</li>
+                            </ul>
+                            <div class="project-metrics">
+                                <span class="metric-chip"><strong>10K+</strong> weather rows ingested</span>
+                                <span class="metric-chip"><strong>3</strong> models tracked in MLflow</span>
+                                <span class="metric-chip"><strong>24/7</strong> live predictions</span>
+                            </div>
+                        </div>
+                        <div class="project-actions">
+                            <a href="rain-prediction-demo.html" class="project-btn">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <circle cx="12" cy="12" r="10"></circle>
+                                    <path d="M8 14s1.5 2 4 2 4-2 4-2"></path>
+                                    <line x1="9" y1="9" x2="9.01" y2="9"></line>
+                                    <line x1="15" y1="9" x2="15.01" y2="9"></line>
+                                </svg>
+                                View Demo
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <div class="project-content">
+                        <h3 class="project-title">Vision Transformer Implementation</h3>
+                        <p class="project-tags">Python, PyTorch | May 2025 to Jul 2025</p>
+                        <div class="project-description">
+                            <p>Deep learning model comparison for food classification.</p>
+                            <ul>
+                                <li>Implemented and compared ViT and EfficientNetB2 architectures</li>
+                                <li>Fine-tuned models using transfer learning on custom dataset</li>
+                                <li>Deployed best-performing model to Hugging Face Spaces with Gradio</li>
+                            </ul>
+                            <div class="project-metrics">
+                                <span class="metric-chip"><strong>2</strong> SOTA architectures benchmarked</span>
+                            </div>
+                        </div>
+                        <div class="project-actions">
+                            <a href="#coming-soon" class="project-btn">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <circle cx="12" cy="12" r="10"></circle>
+                                    <path d="M8 14s1.5 2 4 2 4-2 4-2"></path>
+                                    <line x1="9" y1="9" x2="9.01" y2="9"></line>
+                                    <line x1="15" y1="9" x2="15.01" y2="9"></line>
+                                </svg>
+                                Coming Soon
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <div class="project-content">
+                        <h3 class="project-title">Order-2 Delaunay Triangulation Research</h3>
+                        <p class="project-tags">Computational Geometry, Python, Visualization | Jan 2025 to May 2025</p>
+                        <div class="project-description">
+                            <p>Research on refinement and angle optimization for order-2 Delaunay triangulations at the
+                                University of Florida.</p>
+                            <ul>
+                                <li>Proposed and implemented a novel algorithm using 3D convex hulls to incrementally
+                                    construct order-2 triangulations</li>
+                                <li>Performed statistical analysis of angle distributions across various point sets</li>
+                                <li>Found evidence that refinement methods of order-1 triangulations generalize to
+                                    order-2 triangulations</li>
+                                <li>Developed visualization tools to display triangulations and angle distribution
+                                    results</li>
+                            </ul>
+                            <div class="project-metrics">
+                                <span class="metric-chip"><strong>3</strong> researcher collaboration</span>
+                                <span class="metric-chip"><strong>2</strong> refinement techniques evaluated</span>
+                                <span class="metric-chip"><strong>1</strong> arXiv publication</span>
+                            </div>
+                        </div>
+                        <div class="project-actions">
+                            <a href="delaunay-research-final-with-pdf.html" class="project-btn">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <circle cx="12" cy="12" r="10"></circle>
+                                    <path d="M8 14s1.5 2 4 2 4-2 4-2"></path>
+                                    <line x1="9" y1="9" x2="9.01" y2="9"></line>
+                                    <line x1="15" y1="9" x2="15.01" y2="9"></line>
+                                </svg>
+                                Explore Case Study
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="skills-section" id="skills">
+            <span class="section-label">TECHNICAL SKILLS</span>
+            <div class="skills-container">
+                <div class="skills-grid">
+                    <div class="skill-category">
+                        <h3 class="skill-category-title">
+                            <svg class="skill-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2">
+                                <polyline points="16 18 22 12 16 6"></polyline>
+                                <polyline points="8 6 2 12 8 18"></polyline>
+                            </svg>
+                            Languages
+                        </h3>
+                        <div class="skill-tags">
+                            <span class="skill-tag">Python</span>
+                            <span class="skill-tag">C++</span>
+                            <span class="skill-tag">JavaScript</span>
+                            <span class="skill-tag">TypeScript</span>
+                            <span class="skill-tag">SQL</span>
+                            <span class="skill-tag">Java</span>
+                        </div>
+                    </div>
+
+                    <div class="skill-category">
+                        <h3 class="skill-category-title">
+                            <svg class="skill-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2">
+                                <rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect>
+                                <line x1="8" y1="21" x2="16" y2="21"></line>
+                                <line x1="12" y1="17" x2="12" y2="21"></line>
+                            </svg>
+                            ML/AI & Data
+                        </h3>
+                        <div class="skill-tags">
+                            <span class="skill-tag">PyTorch</span>
+                            <span class="skill-tag">TensorFlow</span>
+                            <span class="skill-tag">scikit-learn</span>
+                            <span class="skill-tag">Pandas</span>
+                            <span class="skill-tag">NumPy</span>
+                            <span class="skill-tag">MLflow</span>
+                            <span class="skill-tag">DVC</span>
+                        </div>
+                    </div>
+
+                    <div class="skill-category">
+                        <h3 class="skill-category-title">
+                            <svg class="skill-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2">
+                                <path
+                                    d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z">
+                                </path>
+                                <polyline points="3.27 6.96 12 12.01 20.73 6.96"></polyline>
+                                <line x1="12" y1="22.08" x2="12" y2="12"></line>
+                            </svg>
+                            Frameworks & Libraries
+                        </h3>
+                        <div class="skill-tags">
+                            <span class="skill-tag">Node.js</span>
+                            <span class="skill-tag">Electron</span>
+                            <span class="skill-tag">Streamlit</span>
+                            <span class="skill-tag">Gradio</span>
+                        </div>
+                    </div>
+
+                    <div class="skill-category">
+                        <h3 class="skill-category-title">
+                            <svg class="skill-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2">
+                                <circle cx="12" cy="12" r="10"></circle>
+                                <line x1="2" y1="12" x2="22" y2="12"></line>
+                                <path
+                                    d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z">
+                                </path>
+                            </svg>
+                            Tools & Technologies
+                        </h3>
+                        <div class="skill-tags">
+                            <span class="skill-tag">Git</span>
+                            <span class="skill-tag">Docker</span>
+                            <span class="skill-tag">AWS</span>
+                            <span class="skill-tag">PostgreSQL</span>
+                            <span class="skill-tag">Linux</span>
+                        </div>
+                    </div>
+
+                    <div class="skill-category">
+                        <h3 class="skill-category-title">
+                            <svg class="skill-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2">
+                                <path d="M12 2L2 7l10 5 10-5-10-5z"></path>
+                                <path d="M2 17l10 5 10-5"></path>
+                                <path d="M2 12l10 5 10-5"></path>
+                            </svg>
+                            Core Competencies
+                        </h3>
+                        <div class="skill-tags">
+                            <span class="skill-tag">Algorithms</span>
+                            <span class="skill-tag">Data Structures</span>
+                            <span class="skill-tag">Computer Vision</span>
+                            <span class="skill-tag">NLP</span>
+                        </div>
+                    </div>
+
+                    <div class="skill-category">
+                        <h3 class="skill-category-title">
+                            <svg class="skill-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2">
+                                <path
+                                    d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z">
+                                </path>
+                            </svg>
+                            Mathematics & Research
+                        </h3>
+                        <div class="skill-tags">
+                            <span class="skill-tag">Linear Algebra</span>
+                            <span class="skill-tag">Calculus</span>
+                            <span class="skill-tag">Probability</span>
+                            <span class="skill-tag">Statistics</span>
+                            <span class="skill-tag">Computational Geometry</span>
+                            <span class="skill-tag">Optimization</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="contact-section" id="contact">
+            <h2 class="contact-title">Let's build something<br>impactful together</h2>
+            <p class="contact-description">
+                I'm seeking opportunities where I can leverage my background in mathematics and computer science to
+                tackle challenging problems and create meaningful solutions. Whether it's developing robust software
+                systems or building data-driven applications, I'm excited to contribute to teams that value rigorous
+                problem-solving and innovative thinking.
+            </p>
+            <div class="contact-links">
+                <div class="contact-row contact-email">
+                    <div class="contact-email-actions">
+                        <a href="mailto:albornoz.armando31416@gmail.com" class="contact-link contact-email-link">
+                            <svg class="contact-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2">
+                                <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z">
+                                </path>
+                                <polyline points="22,6 12,13 2,6"></polyline>
+                            </svg>
+                            <span class="contact-email-text">albornoz.armando31416@gmail.com</span>
+                        </a>
+                        <button type="button" class="copy-email-btn" data-email="albornoz.armando31416@gmail.com"
+                            aria-label="Copy email address">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+                                <path d="M5 15H4a2 2 0 01-2-2V4a2 2 0 012-2h9a2 2 0 012 2v1"></path>
+                            </svg>
+                            <span class="copy-email-label">Copy</span>
+                        </button>
+                    </div>
+                    <span class="copy-feedback" aria-live="polite"></span>
+                </div>
+                <div class="contact-row">
+                    <a href="https://www.linkedin.com/in/armando-albornoz-2a7493285" target="_blank"
+                        rel="noopener noreferrer" class="contact-link">
+                        <svg class="contact-icon" viewBox="0 0 24 24" fill="currentColor">
+                            <path
+                                d="M20.5 2h-17A1.5 1.5 0 002 3.5v17A1.5 1.5 0 003.5 22h17a1.5 1.5 0 001.5-1.5v-17A1.5 1.5 0 0020.5 2zM8 19H5v-9h3zM6.5 8.25A1.75 1.75 0 118.3 6.5a1.78 1.78 0 01-1.8 1.75zM19 19h-3v-4.74c0-1.42-.6-1.93-1.38-1.93A1.74 1.74 0 0013 14.19a.66.66 0 000 .14V19h-3v-9h2.9v1.3a3.11 3.11 0 012.7-1.4c1.55 0 3.36.86 3.36 3.66z">
+                            </path>
+                        </svg>
+                        LinkedIn
+                    </a>
+                    <a href="https://github.com/armandoalbornoz" target="_blank" rel="noopener noreferrer"
+                        class="contact-link">
+                        <svg class="contact-icon" viewBox="0 0 24 24" fill="currentColor">
+                            <path
+                                d="M12 2C6.477 2 2 6.477 2 12c0 4.42 2.865 8.17 6.839 9.49.5.092.682-.217.682-.482 0-.237-.008-.866-.013-1.7-2.782.603-3.369-1.34-3.369-1.34-.454-1.156-1.11-1.463-1.11-1.463-.908-.62.069-.608.069-.608 1.003.07 1.531 1.03 1.531 1.03.892 1.529 2.341 1.087 2.91.831.092-.646.35-1.086.636-1.336-2.22-.253-4.555-1.11-4.555-4.943 0-1.091.39-1.984 1.029-2.683-.103-.253-.446-1.27.098-2.647 0 0 .84-.269 2.75 1.025A9.578 9.578 0 0112 6.836c.85.004 1.705.114 2.504.336 1.909-1.294 2.747-1.025 2.747-1.025.546 1.377.203 2.394.1 2.647.64.699 1.028 1.592 1.028 2.683 0 3.842-2.339 4.687-4.566 4.935.359.309.678.919.678 1.852 0 1.336-.012 2.415-.012 2.743 0 .267.18.578.688.48C19.138 20.167 22 16.418 22 12c0-5.523-4.477-10-10-10z">
+                            </path>
+                        </svg>
+                        GitHub
+                    </a>
+                </div>
+            </div>
+        </section>
+
+
+        <!-- Coming Soon Modal -->
+        <div id="coming-soon-modal" class="modal">
+            <div class="modal-content">
+                <button class="modal-close" type="button" data-modal-close>&times;</button>
+                <div class="modal-icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <circle cx="12" cy="12" r="10"></circle>
+                        <polyline points="12 6 12 12 16 14"></polyline>
+                    </svg>
+                </div>
+                <h2 class="modal-title">Coming Soon!</h2>
+                <p class="modal-description">
+                    I'm currently working on deploying this project demo. Check back soon or reach out to me for a
+                    private demonstration of this project.
+                </p>
+                <a href="#contact" class="modal-btn" data-modal-close>Get in Touch</a>
+            </div>
+        </div>
+
+        <footer class="footer">
+            <p>Armando Albornoz © 2025</p>
+        </footer>
+    </div>
+
 </body>
+
 </html>
