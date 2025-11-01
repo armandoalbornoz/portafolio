@@ -7,7 +7,9 @@
     <title>Rain Prediction ML Pipeline - Demo</title>
     <link rel="stylesheet" href="assets/css/base.css">
     <link rel="stylesheet" href="assets/css/rain.css">
-    <script type="module" src="/assets/js/rain.entry.js"></script>
+    <script type="module">
+        import(`${import.meta.env.BASE_URL}assets/js/rain.entry.js`);
+    </script>
 </head>
 
 <body>
