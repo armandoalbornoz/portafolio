@@ -1,0 +1,62 @@
+*** Update File: assets/js/portfolio.js
+@@
+     if (modal) {
+         // Close modal when clicking outside
+         modal.addEventListener('click', (event) => {
+             if (event.target.id === 'coming-soon-modal') {
+                 closeModal();
+             }
+         });
+     }
+ 
+     // Close modal with Escape key
+     document.addEventListener('keydown', (event) => {
+         if (event.key === 'Escape') {
+             closeModal();
+         }
+     });
++
++    const copyEmailBtn = document.querySelector('.copy-email-btn');
++    if (copyEmailBtn) {
++        const feedbackEl = document.querySelector('.copy-feedback');
++        copyEmailBtn.addEventListener('click', async () => {
++            const email = copyEmailBtn.dataset.email;
++            if (!email) {
++                return;
++            }
++
++            const showFeedback = (message) => {
++                if (!feedbackEl) {
++                    return;
++                }
++                feedbackEl.textContent = message;
++                clearTimeout(feedbackEl.dataset.timeoutId);
++                const id = setTimeout(() => {
++                    feedbackEl.textContent = '';
++                    delete feedbackEl.dataset.timeoutId;
++                }, 2000);
++                feedbackEl.dataset.timeoutId = id;
++            };
++
++            try {
++                if (navigator.clipboard && navigator.clipboard.writeText) {
++                    await navigator.clipboard.writeText(email);
++                } else {
++                    const tempInput = document.createElement('input');
++                    tempInput.value = email;
++                    document.body.appendChild(tempInput);
++                    tempInput.select();
++                    document.execCommand('copy');
++                    document.body.removeChild(tempInput);
++                }
++                showFeedback('Copied!');
++                copyEmailBtn.classList.add('copied');
++                setTimeout(() => copyEmailBtn.classList.remove('copied'), 1500);
++            } catch (error) {
++                console.error('Failed to copy email:', error);
++                showFeedback('Press Ctrl + C to copy');
++            }
++        });
++    }
+ }
+*** End Patch

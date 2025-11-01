@@ -1,0 +1,34 @@
+{
+    "name": "portafolio_website",
+    "version": "1.0.0",
+    "description": "Modularised version of the three standalone HTML experiences (`portfolio.html`, `delaunay-research-final-with-pdf.html`, `rain-prediction-demo.html`). All shared styles and behaviours now live in a central `assets` directory so each page only contains semantic markup.",
+    "main": "index.js",
+    "keywords": [],
+    "author": "",
+    "license": "ISC",
+    "devDependencies": {
+        "autoprefixer": "^10.4.21",
+        "cssnano": "^7.1.2",
+        "eslint": "^9.38.0",
+        "eslint-config-prettier": "^10.1.8",
+        "eslint-plugin-import": "^2.32.0",
+        "eslint-plugin-n": "^17.23.1",
+        "eslint-plugin-promise": "^7.2.1",
+        "postcss": "^8.5.6",
+        "prettier": "^3.6.2",
+        "vite": "^7.1.12"
+    },
+    "scripts": {
+        "preview": "vite preview",
+        "build": "vite build",
+        "lint": "eslint \"assets/**/*.{js,ts}\"",
+        "format": "prettier --write \"**/*.{js,css,html,json,md}\"",
+        "lint:fix": "eslint \"assets/**/*.{js,ts}\" --fix",
+        "dev": "vite"
+    },
+    "dependencies": {
+        "d3": "^7.9.0",
+        "d3-delaunay": "^6.0.4",
+        "three": "^0.181.0"
+    }
+}

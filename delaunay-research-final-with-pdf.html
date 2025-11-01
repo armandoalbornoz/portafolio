@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Order-K Delaunay Triangulation Research</title>
+    <link rel="stylesheet" href="assets/css/base.css">
+    <link rel="stylesheet" href="assets/css/delaunay.css">
+    <script type="module" src="/assets/js/delaunay.entry.js"></script>
+</head>
+<body>
+    <canvas id="three-background"></canvas>
+    <div class="cursor"></div>
+    <div class="cursor-follower"></div>
+
+    <a href="portfolio.html" class="back-button">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <line x1="19" y1="12" x2="5" y2="12"></line>
+            <polyline points="12 19 5 12 12 5"></polyline>
+        </svg>
+        Back to Portfolio
+    </a>
+
+    <div class="container">
+        <div class="header">
+            <h1 class="project-title">Order-K Delaunay Triangulation</h1>
+            <p class="research-authors">Research by Adnan Farid, Edward Guthrie, Armando Albornoz</p>
+            <p class="project-subtitle">Exploring Angle Optimization in Higher-Order Delaunay Triangulations</p>
+            <div class="tech-tags">
+                <span class="tech-tag">Computational Geometry</span>
+                <span class="tech-tag">Convex Hull Algorithms</span>
+                <span class="tech-tag">Mesh Refinement</span>
+            </div>
+        </div>
+
+        <div class="content-grid">
+            <div class="glass-panel info-panel">
+                <div class="info-section">
+                    <h2 class="info-title">Interactive Demo</h2>
+                    <p class="info-text">
+                        Explore Delaunay triangulation by clicking on the canvas to add points, or use the controls below to generate examples.
+                    </p>
+                    <p class="info-text">
+                        This visualization demonstrates the foundation of our research on higher-order Delaunay triangulations.
+                    </p>
+                </div>
+
+                <div class="info-section">
+                    <h2 class="info-title">Statistics</h2>
+                    <div class="stat-grid">
+                        <div class="stat-item">
+                            <div class="stat-value" id="pointCount">0</div>
+                            <div class="stat-label">Points</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-value" id="triangleCount">0</div>
+                            <div class="stat-label">Triangles</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-value" id="minAngle">0°</div>
+                            <div class="stat-label">Min Angle</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-value" id="avgAngle">0°</div>
+                            <div class="stat-label">Avg Angle</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="info-section">
+                    <h2 class="info-title">Controls</h2>
+                    <div class="control-buttons">
+                        <button class="control-btn" data-action="load-example"><span>Load Example</span></button>
+                        <button class="control-btn" data-add-count="10"><span>Add 10 Random</span></button>
+                        <button class="control-btn" data-add-count="50"><span>Add 50 Random</span></button>
+                        <button class="control-btn" data-action="clear"><span>Clear All</span></button>
+                        <button class="control-btn" id="toggleVoronoi" data-action="toggle-voronoi"><span>Show Voronoi</span></button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="glass-panel">
+                <svg id="delaunay-canvas"></svg>
+            </div>
+        </div>
+
+        <div class="section-divider"></div>
+
+        <!-- Research Content -->
+        <div class="research-section">
+            <div class="glass-panel research-content">
+                <h2 class="research-title">Our Research on Order-K Delaunay Triangulations</h2>
+                
+                <p class="research-text">
+                    Delaunay triangulations are fundamental geometric structures used extensively in computational geometry, computer graphics, and mesh generation. Their popularity stems from optimal angular properties: standard Delaunay triangulations maximize the minimum angle among all possible triangulations, helping create well-shaped triangles.
+                </p>
+
+                <div class="highlight-box">
+                    <strong>Research Question:</strong> How can refinement optimize angles in Order-2 Delaunay triangulations? While refinement is well-studied for standard (order-1) Delaunay triangulations, its role in higher-order triangulations remains largely unexplored.
+                </div>
+
+                <h3 class="research-subtitle">What are Order-K Delaunay Triangulations?</h3>
+                
+                <p class="research-text">
+                    While standard Delaunay triangulations (order-1) use single points as vertices, <strong>order-k Delaunay triangulations</strong> use k-tuples of points. For order-2, each vertex represents the average (barycenter) of two points from the original set. This creates a more complex structure with interesting angle optimization properties.
+                </p>
+
+                <h3 class="research-subtitle">The Convex Hull Lifting Algorithm</h3>
+
+                <p class="research-text">
+                    A key algorithmic contribution of our work is the development of an incremental construction method using the convex hull lifting technique. This approach provides an elegant geometric interpretation of order-k Delaunay triangulations.
+                </p>
+
+                <div class="algorithm-box">
+                    <h4 style="color: var(--accent-color); font-size: 1.5rem; margin-bottom: 20px;">Algorithm Overview</h4>
+                    <p class="research-text" style="color: var(--text-primary);">
+                        The algorithm leverages the classical duality between Delaunay triangulations and convex hulls in higher dimensions. For order-2 triangulations, we lift points to 3D space and compute barycenters, then project the lower hull back to the plane.
+                    </p>
+                    
+                    <div class="algorithm-steps">
+                        <div class="algorithm-step">
+                            <span class="step-number">1</span>
+                            <strong style="color: var(--text-primary);">Lift Points:</strong> 
+                            <span style="color: var(--text-secondary);"> Project each point (x, y) to 3D using the paraboloid z = x² + y²</span>
+                        </div>
+                        
+                        <div class="algorithm-step">
+                            <span class="step-number">2</span>
+                            <strong style="color: var(--text-primary);">Compute Barycenters:</strong> 
+                            <span style="color: var(--text-secondary);"> For all pairs of lifted points, calculate their average (barycenter)</span>
+                        </div>
+                        
+                        <div class="algorithm-step">
+                            <span class="step-number">3</span>
+                            <strong style="color: var(--text-primary);">Convex Hull:</strong> 
+                            <span style="color: var(--text-secondary);"> Compute the 3D convex hull of these barycenter points</span>
+                        </div>
+                        
+                        <div class="algorithm-step">
+                            <span class="step-number">4</span>
+                            <strong style="color: var(--text-primary);">Lower Hull Projection:</strong> 
+                            <span style="color: var(--text-secondary);"> Identify facets with downward-facing normals and project them back to 2D</span>
+                        </div>
+                        
+                        <div class="algorithm-step">
+                            <span class="step-number">5</span>
+                            <strong style="color: var(--text-primary);">Triangulation:</strong> 
+                            <span style="color: var(--text-secondary);"> The projected lower hull faces form the order-2 Delaunay triangulation</span>
+                        </div>
+                    </div>
+
+                    <div class="highlight-box" style="margin-top: 30px; background: rgba(6, 182, 212, 0.1); border-color: var(--accent-color);">
+                        <strong style="color: var(--accent-color);">Key Challenge:</strong>
+                        <p style="margin-top: 15px; color: var(--text-secondary);">
+                            Computing all O(n²) barycenters becomes computationally expensive for large point sets. Our research explored optimizations using the rhomboid tiling structure to identify only the relevant barycenters that contribute to the lower hull, avoiding unnecessary computation.
+                        </p>
+                    </div>
+                </div>
+
+                <h3 class="research-subtitle">Key Findings</h3>
+
+                <div class="key-findings">
+                    <div class="finding-card">
+                        <div class="finding-number">01</div>
+                        <div class="finding-title">Angle Optimization</div>
+                        <div class="finding-text">
+                            Order-2 Delaunay triangulations extend the local angle property from order-1, lexicographically maximizing the sorted angle vector among all complete level-2 hypertriangulations.
+                        </div>
+                    </div>
+
+                    <div class="finding-card">
+                        <div class="finding-number">02</div>
+                        <div class="finding-title">Refinement Techniques</div>
+                        <div class="finding-text">
+                            We explored Ruppert's algorithm and mesh smoothing for refinement. While both improve angle histograms, order-2 triangulations converge slower than order-1, with blue triangles replicating order-1 structure and red triangles introducing new angles.
+                        </div>
+                    </div>
+
+                    <div class="finding-card">
+                        <div class="finding-number">03</div>
+                        <div class="finding-title">Algorithmic Efficiency</div>
+                        <div class="finding-text">
+                            The rhomboid tiling algorithm significantly outperforms naive barycenter computation. By leveraging the combinatorial structure of hyperplane arrangements, we identify relevant vertices without examining all possible pairs.
+                        </div>
+                    </div>
+                </div>
+
+                <h3 class="research-subtitle">Experimental Results</h3>
+
+                <p class="research-text">
+                    Through extensive experimentation with various point distributions (Gaussian, explosion, convex), we found that:
+                </p>
+
+                <ul class="research-text" style="margin-left: 30px;">
+                    <li style="margin-bottom: 15px;">Order-2 triangulations show improvement but retain more small angles than order-1</li>
+                    <li style="margin-bottom: 15px;">Blue triangles in order-2 replicate order-1 structure, while red triangles introduce new angles</li>
+                    <li style="margin-bottom: 15px;">The rhomboid tiling algorithm outperforms our initial incremental approach</li>
+                    <li style="margin-bottom: 15px;">Mesh smoothing provides modest improvements but doesn't eliminate all problematic angles</li>
+                </ul>
+
+                <h3 class="research-subtitle">Future Directions</h3>
+
+                <p class="research-text">
+                    Our research opens several avenues for future study:
+                </p>
+
+                <div class="key-findings">
+                    <div class="finding-card">
+                        <div class="finding-title">Improved Incremental Algorithms</div>
+                        <div class="finding-text">
+                            Developing more efficient incremental construction by identifying relevant barycenters without computing all combinations, possibly using predicted structures from the order-1 triangulation.
+                        </div>
+                    </div>
+
+                    <div class="finding-card">
+                        <div class="finding-title">Enhanced Refinement</div>
+                        <div class="finding-text">
+                            Investigating refinement strategies specifically designed for order-2 triangulations to better eliminate problematic angles, particularly those introduced by red triangles.
+                        </div>
+                    </div>
+
+                    <div class="finding-card">
+                        <div class="finding-title">Complexity Analysis</div>
+                        <div class="finding-text">
+                            Further study of the size and complexity of order-k Delaunay triangulations for k > 2, and whether similar optimization properties hold for higher orders.
+                        </div>
+                    </div>
+                </div>
+
+                <div class="highlight-box" style="margin-top: 60px;">
+                    <p style="margin: 0; color: var(--text-primary); font-size: 1.1rem;">
+                        <strong>Impact:</strong> This research contributes to our understanding of higher-order Delaunay triangulations and their potential applications in mesh generation, where avoiding poorly-shaped triangles is crucial for numerical stability and accuracy in finite element methods and computational simulations.
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <!-- PDF VIEWER SECTION -->
+        <div class="section-divider"></div>
+
+        <div class="glass-panel pdf-section">
+            <h2 class="pdf-header">Milestone III Report (Full PDF)</h2>
+
+            <p class="pdf-text">
+                This is the full milestone writeup, including background, literature review, algorithmic approach,
+                refinement experiments, and results. You can read it inline or open it separately.
+            </p>
+
+            <div style="text-align:center;">
+                <a
+                    href="/docs/delaunay-milestone.pdf"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="pdf-open-btn"
+                >
+                    Open PDF in New Tab
+                </a>
+            </div>
+
+            <div class="pdf-frame-wrapper">
+                <iframe
+                    class="pdf-frame"
+                    src="/docs/delaunay-milestone.pdf"
+                ></iframe>
+            </div>
+        </div>
+    </div>
+
+    </body>
+</html>
+
+
+
+
+

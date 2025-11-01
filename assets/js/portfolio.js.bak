@@ -1,0 +1,436 @@
+﻿import * as THREE from 'three';
+document.addEventListener('DOMContentLoaded', () => {
+    // Three.js Scene
+    const scene = new THREE.Scene();
+    const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
+    const renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });
+    const canvasContainer = document.getElementById('canvas-container');
+
+    if (!canvasContainer) {
+        return;
+    }
+
+    renderer.setSize(window.innerWidth, window.innerHeight);
+    renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+    canvasContainer.appendChild(renderer.domElement);
+
+    camera.position.z = 5;
+
+    // Lighting
+    const ambientLight = new THREE.AmbientLight(0xffffff, 0.5);
+    scene.add(ambientLight);
+
+    const pointLight1 = new THREE.PointLight(0x8b5cf6, 2);
+    pointLight1.position.set(5, 5, 5);
+    scene.add(pointLight1);
+
+    const pointLight2 = new THREE.PointLight(0xec4899, 2);
+    pointLight2.position.set(-5, -5, 5);
+    scene.add(pointLight2);
+
+    const pointLight3 = new THREE.PointLight(0x3b82f6, 1.5);
+    pointLight3.position.set(0, 0, -5);
+    scene.add(pointLight3);
+
+    // Floating orbs in background
+    const orbsGroup = new THREE.Group();
+    for (let i = 0; i < 15; i++) {
+        const orbGeometry = new THREE.SphereGeometry(0.1 + Math.random() * 0.2, 16, 16);
+        const orbMaterial = new THREE.MeshStandardMaterial({
+            color: [0x8b5cf6, 0xec4899, 0x3b82f6][Math.floor(Math.random() * 3)],
+            emissive: [0x8b5cf6, 0xec4899, 0x3b82f6][Math.floor(Math.random() * 3)],
+            emissiveIntensity: 0.2,
+            transparent: true,
+            opacity: 0.15
+        });
+        const orb = new THREE.Mesh(orbGeometry, orbMaterial);
+        orb.position.set(
+            (Math.random() - 0.5) * 30,
+            (Math.random() - 0.5) * 30,
+            (Math.random() - 0.5) * 30
+        );
+        orb.userData.velocity = {
+            x: (Math.random() - 0.5) * 0.02,
+            y: (Math.random() - 0.5) * 0.02,
+            z: (Math.random() - 0.5) * 0.02
+        };
+        orbsGroup.add(orb);
+    }
+    scene.add(orbsGroup);
+
+    // Create different 3D shapes for each section
+    const shapes = [];
+
+    // Shape 1: Icosahedron (Hero Section) - Geometric precision
+    const sphereGeometry = new THREE.IcosahedronGeometry(2, 1);
+    const sphereMaterial = new THREE.MeshStandardMaterial({
+        color: 0x8b5cf6,
+        wireframe: true,
+        emissive: 0x8b5cf6,
+        emissiveIntensity: 0.2,
+        transparent: true,
+        opacity: 0,
+        depthWrite: false
+    });
+    const sphere = new THREE.Mesh(sphereGeometry, sphereMaterial);
+    sphere.position.x = 3;
+    sphere.visible = false;
+    sphere.userData.maxOpacity = 0.4;
+    scene.add(sphere);
+    shapes.push(sphere);
+
+    // Shape 2: Torus Knot (About Section) - Mathematical beauty
+    const torusKnotGeometry = new THREE.TorusKnotGeometry(1.5, 0.4, 100, 16);
+    const torusKnotMaterial = new THREE.MeshStandardMaterial({
+        color: 0x3b82f6,
+        wireframe: false,
+        metalness: 0.8,
+        roughness: 0.2,
+        emissive: 0x3b82f6,
+        emissiveIntensity: 0.15,
+        transparent: true,
+        opacity: 0,
+        depthWrite: false
+    });
+    const torusKnot = new THREE.Mesh(torusKnotGeometry, torusKnotMaterial);
+    torusKnot.position.x = 3;
+    torusKnot.visible = false;
+    torusKnot.userData.maxOpacity = 0.35;
+    scene.add(torusKnot);
+    shapes.push(torusKnot);
+
+    // Shape 3: Octahedron (Experience Section) - Research & Analysis
+    const octaGeometry = new THREE.OctahedronGeometry(2, 0);
+    const octaMaterial = new THREE.MeshStandardMaterial({
+        color: 0xec4899,
+        wireframe: true,
+        emissive: 0xec4899,
+        emissiveIntensity: 0.2,
+        transparent: true,
+        opacity: 0,
+        depthWrite: false
+    });
+    const octa = new THREE.Mesh(octaGeometry, octaMaterial);
+    octa.position.x = 3;
+    octa.visible = false;
+    octa.userData.maxOpacity = 0.4;
+    scene.add(octa);
+    shapes.push(octa);
+
+    // Shape 4: Abstract Network (Projects Section) - Interconnected systems
+    const boxGroup = new THREE.Group();
+    for (let i = 0; i < 12; i++) {
+        const size = Math.random() * 0.4 + 0.2;
+        const boxGeometry = new THREE.BoxGeometry(size, size, size);
+        const boxMaterial = new THREE.MeshStandardMaterial({
+            color: 0xa855f7,
+            metalness: 0.7,
+            roughness: 0.3,
+            emissive: 0xa855f7,
+            emissiveIntensity: 0.1,
+            transparent: true,
+            opacity: 0,
+            depthWrite: false
+        });
+        const box = new THREE.Mesh(boxGeometry, boxMaterial);
+        const angle = (i / 12) * Math.PI * 2;
+        const radius = 2;
+        box.position.set(
+            Math.cos(angle) * radius,
+            Math.sin(angle) * radius * 0.5,
+            (Math.random() - 0.5) * 2
+        );
+        box.rotation.set(
+            Math.random() * Math.PI,
+            Math.random() * Math.PI,
+            Math.random() * Math.PI
+        );
+        boxGroup.add(box);
+    }
+    boxGroup.position.x = 3;
+    boxGroup.userData.opacity = 0;
+    boxGroup.userData.maxOpacity = 0.4;
+    boxGroup.visible = false;
+    scene.add(boxGroup);
+    shapes.push(boxGroup);
+
+    // Shape 5: Dodecahedron (Contact Section) - Perfect symmetry
+    const dodecaGeometry = new THREE.DodecahedronGeometry(2, 0);
+    const dodecaMaterial = new THREE.MeshStandardMaterial({
+        color: 0x6366f1,
+        wireframe: true,
+        emissive: 0x6366f1,
+        emissiveIntensity: 0.2,
+        transparent: true,
+        opacity: 0,
+        depthWrite: false
+    });
+    const dodeca = new THREE.Mesh(dodecaGeometry, dodecaMaterial);
+    dodeca.position.x = 3;
+    dodeca.visible = false;
+    dodeca.userData.maxOpacity = 0.4;
+    scene.add(dodeca);
+    shapes.push(dodeca);
+
+    // Background particles
+    const particlesGeometry = new THREE.BufferGeometry();
+    const particlesCount = 3000;
+    const posArray = new Float32Array(particlesCount * 3);
+
+    for (let i = 0; i < particlesCount * 3; i++) {
+        posArray[i] = (Math.random() - 0.5) * 100;
+    }
+
+    particlesGeometry.setAttribute('position', new THREE.BufferAttribute(posArray, 3));
+    const particlesMaterial = new THREE.PointsMaterial({
+        size: 0.03,
+        color: 0x8b5cf6,
+        transparent: true,
+        opacity: 0.4,
+        blending: THREE.AdditiveBlending
+    });
+    const particlesMesh = new THREE.Points(particlesGeometry, particlesMaterial);
+    scene.add(particlesMesh);
+
+    // Mouse interaction
+    let mouseX = 0;
+    let mouseY = 0;
+    let targetX = 0;
+    let targetY = 0;
+
+    document.addEventListener('mousemove', (e) => {
+        mouseX = (e.clientX / window.innerWidth) * 2 - 1;
+        mouseY = -(e.clientY / window.innerHeight) * 2 + 1;
+    });
+
+    // Scroll-based shape transitions
+    function updateShapesOnScroll() {
+        const scrollPosition = window.scrollY;
+        const windowHeight = window.innerHeight;
+        const documentHeight = document.documentElement.scrollHeight;
+        const scrollPercentage = scrollPosition / (documentHeight - windowHeight);
+
+        const sectionIndex = Math.floor(scrollPercentage * 6);
+
+        shapes.forEach((shape, index) => {
+            const isActiveSection = index === sectionIndex;
+            const maxOpacity = shape.userData.maxOpacity || 0.4;
+            const targetOpacity = isActiveSection ? maxOpacity : 0;
+            const targetScale = isActiveSection ? 1 : 0.8;
+
+            if (targetOpacity > 0.01) {
+                shape.visible = true;
+            }
+
+            if (shape.material) {
+                const currentOpacity = shape.material.opacity;
+                shape.material.opacity += (targetOpacity - currentOpacity) * 0.1;
+
+                if (shape.material.opacity < 0.01) {
+                    shape.visible = false;
+                    shape.material.opacity = 0;
+                }
+            } else if (shape.children.length > 0) {
+                const currentOpacity = shape.userData.opacity || 0;
+                shape.userData.opacity = currentOpacity + (targetOpacity - currentOpacity) * 0.1;
+
+                shape.children.forEach(child => {
+                    if (child.material) {
+                        child.material.opacity = shape.userData.opacity;
+                    }
+                });
+
+                if (shape.userData.opacity < 0.01) {
+                    shape.visible = false;
+                    shape.userData.opacity = 0;
+                }
+            }
+
+            const currentScale = shape.scale.x;
+            const newScale = currentScale + (targetScale - currentScale) * 0.1;
+            shape.scale.set(newScale, newScale, newScale);
+        });
+
+        const colors = [0x8b5cf6, 0x3b82f6, 0xec4899, 0xa855f7, 0x6366f1, 0x8b5cf6];
+        particlesMaterial.color.setHex(colors[sectionIndex] || 0x8b5cf6);
+
+        const scrollOffset = scrollPercentage * 10;
+        shapes.forEach((shape, index) => {
+            if (shape.visible) {
+                shape.position.y = Math.sin(scrollOffset + index) * 0.5;
+            }
+        });
+    }
+
+    // Animation loop
+    function animate() {
+        requestAnimationFrame(animate);
+
+        targetX = mouseX * 0.3;
+        targetY = mouseY * 0.3;
+        camera.position.x += (targetX - camera.position.x) * 0.05;
+        camera.position.y += (targetY - camera.position.y) * 0.05;
+
+        shapes.forEach((shape, index) => {
+            shape.rotation.x += 0.003 * (index + 1);
+            shape.rotation.y += 0.005 * (index + 1);
+        });
+
+        particlesMesh.rotation.y += 0.0005;
+        particlesMesh.rotation.x += 0.0002;
+
+        // Animate floating orbs
+        orbsGroup.children.forEach(orb => {
+            orb.position.x += orb.userData.velocity.x;
+            orb.position.y += orb.userData.velocity.y;
+            orb.position.z += orb.userData.velocity.z;
+
+            // Bounce orbs within bounds
+            if (Math.abs(orb.position.x) > 15) orb.userData.velocity.x *= -1;
+            if (Math.abs(orb.position.y) > 15) orb.userData.velocity.y *= -1;
+            if (Math.abs(orb.position.z) > 15) orb.userData.velocity.z *= -1;
+
+            // Pulse effect
+            const scale = 1 + Math.sin(Date.now() * 0.001 + orb.position.x) * 0.2;
+            orb.scale.set(scale, scale, scale);
+        });
+
+        // Animate lights
+        const time = Date.now() * 0.001;
+        pointLight1.position.x = Math.sin(time * 0.5) * 5;
+        pointLight1.position.y = Math.cos(time * 0.3) * 5;
+        pointLight2.position.x = Math.cos(time * 0.4) * 5;
+        pointLight2.position.z = Math.sin(time * 0.6) * 5;
+        pointLight3.intensity = 1.5 + Math.sin(time * 2) * 0.5;
+
+        updateShapesOnScroll();
+
+        renderer.render(scene, camera);
+    }
+
+    animate();
+
+    window.addEventListener('resize', () => {
+        camera.aspect = window.innerWidth / window.innerHeight;
+        camera.updateProjectionMatrix();
+        renderer.setSize(window.innerWidth, window.innerHeight);
+    });
+
+    // Navbar scroll effect
+    const navbar = document.querySelector('nav');
+    if (navbar) {
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 100) {
+                navbar.classList.add('scrolled');
+            } else {
+                navbar.classList.remove('scrolled');
+            }
+        });
+    }
+
+    // Section scroll animations
+    const sections = document.querySelectorAll('.about-section, .skills-section, .experience-section, .projects-section, .contact-section');
+
+    const sectionObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('visible');
+            } else {
+                // Remove visible class when scrolling away for re-animation
+                entry.target.classList.remove('visible');
+            }
+        });
+    }, {
+        threshold: 0.2,
+        rootMargin: '-50px'
+    });
+
+    sections.forEach(section => {
+        sectionObserver.observe(section);
+    });
+
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function (e) {
+            e.preventDefault();
+            const target = document.querySelector(this.getAttribute('href'));
+            if (target) {
+                target.scrollIntoView({ behavior: 'smooth' });
+            }
+        });
+    });
+
+    const observerOptions = {
+        threshold: 0.2,
+        rootMargin: '0px 0px -100px 0px'
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.style.opacity = '1';
+                entry.target.style.transform = 'translateY(0)';
+            }
+        });
+    }, observerOptions);
+
+    document.querySelectorAll('.project-card, .about-content, .education-card, .experience-card, .skill-category').forEach(el => {
+        el.style.opacity = '0';
+        el.style.transform = 'translateY(50px)';
+        el.style.transition = 'all 0.8s ease';
+        observer.observe(el);
+    });
+
+    // Coming Soon Modal functionality
+    const modal = document.getElementById('coming-soon-modal');
+
+    function openModal() {
+        if (!modal) {
+            return;
+        }
+        modal.classList.add('active');
+        document.body.style.overflow = 'hidden';
+    }
+
+    function closeModal() {
+        if (!modal) {
+            return;
+        }
+        modal.classList.remove('active');
+        document.body.style.overflow = 'auto';
+    }
+
+    // Handle coming soon links
+    document.querySelectorAll('a[href="#coming-soon"]').forEach((link) => {
+        link.addEventListener('click', (event) => {
+            event.preventDefault();
+            openModal();
+        });
+    });
+
+    // Modal close triggers
+    document.querySelectorAll('[data-modal-close]').forEach((trigger) => {
+        trigger.addEventListener('click', () => {
+            closeModal();
+        });
+    });
+
+    if (modal) {
+        // Close modal when clicking outside
+        modal.addEventListener('click', (event) => {
+            if (event.target.id === 'coming-soon-modal') {
+                closeModal();
+            }
+        });
+    }
+
+    // Close modal with Escape key
+    document.addEventListener('keydown', (event) => {
+        if (event.key === 'Escape') {
+            closeModal();
+        }
+    });
+});
+
+
+
+

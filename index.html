@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Redirecting…</title>
+  <meta http-equiv="refresh" content="0; url=/portfolio.html" />
+  <link rel="canonical" href="/portfolio.html" />
+  <link rel="stylesheet" href="assets/css/base.css" />
+  <style>
+    body { display: grid; place-items: center; min-height: 100vh; text-align:center }
+    a { color: var(--text-primary) }
+    .desc { color: var(--text-secondary); margin-top: 8px }
+  </style>
+  <script>
+    // JS fallback for environments ignoring meta refresh
+    (function(){ location.replace('/portfolio.html'); })();
+  </script>
+</head>
+<body>
+  <main>
+    <h1>Redirecting to Portfolio…</h1>
+    <p class="desc">If you are not redirected, <a href="/portfolio.html">click here</a>.</p>
+  </main>
+</body>
+</html>

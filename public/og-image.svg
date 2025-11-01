@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
+    <defs>
+        <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" stop-color="#0f172a"/>
+            <stop offset="50%" stop-color="#312e81"/>
+            <stop offset="100%" stop-color="#7c3aed"/>
+        </linearGradient>
+    </defs>
+    <rect width="1200" height="630" fill="url(#bg)"/>
+    <g fill="#f8fafc">
+        <text x="80" y="180" font-family="Inter, 'Segoe UI', sans-serif" font-size="64" font-weight="600" letter-spacing="4">
+            Armando Albornoz
+        </text>
+        <text x="80" y="260" font-family="Inter, 'Segoe UI', sans-serif" font-size="38" fill="#cbd5f5">
+            SOFTWARE ENGINEER · COMPUTATIONAL GEOMETRY · ML SYSTEMS
+        </text>
+        <text x="80" y="360" font-family="Inter, 'Segoe UI', sans-serif" font-size="30" fill="#e0e7ff">
+            Building production ML pipelines, research-driven algorithms, and delightful interfaces.
+        </text>
+        <text x="80" y="430" font-family="Inter, 'Segoe UI', sans-serif" font-size="26" fill="#cbd5f5">
+            ▶ Rain Prediction Pipeline · Order-2 Delaunay Research · Vision Transformer Toolkit
+        </text>
+    </g>
+</svg>
