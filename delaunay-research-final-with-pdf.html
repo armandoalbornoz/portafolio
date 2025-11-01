@@ -252,8 +252,7 @@
 
             <div style="text-align:center;">
                 <a
-                    data-pdf-link
-                    href="docs/delaunay-milestone.pdf"
+                    href="./docs/delaunay-milestone.pdf"
                     target="_blank"
                     rel="noopener noreferrer"
                     class="pdf-open-btn"
@@ -264,23 +263,12 @@
 
             <div class="pdf-frame-wrapper">
                 <iframe
-                    data-pdf-frame
                     class="pdf-frame"
-                    src="docs/delaunay-milestone.pdf"
+                    src="./docs/delaunay-milestone.pdf"
                 ></iframe>
             </div>
         </div>
     </div>
-
-    <script type="module">
-        const pdfUrl = new URL('./docs/delaunay-milestone.pdf', import.meta.url).toString();
-        document.querySelectorAll('[data-pdf-link]').forEach((el) => {
-            el.setAttribute('href', pdfUrl);
-        });
-        document.querySelectorAll('[data-pdf-frame]').forEach((el) => {
-            el.setAttribute('src', pdfUrl);
-        });
-    </script>
 
     </body>
 </html>
