@@ -1,6 +1,31 @@
-import * as THREE from 'three';
+import { loadWithFallback } from './module-loader.js';
 
-function initRainScene() {
+const THREE_FALLBACK_URL = 'https://cdn.jsdelivr.net/npm/three@0.161.0/build/three.module.js';
+
+let threeModulePromise;
+
+function loadThreeModule() {
+    if (!threeModulePromise) {
+        threeModulePromise = loadWithFallback('three', THREE_FALLBACK_URL);
+    }
+    return threeModulePromise;
+}
+
+async function initRainScene() {
+    let THREE;
+    try {
+        const threeModule = await loadThreeModule();
+        THREE = threeModule?.default ?? threeModule;
+    } catch (error) {
+        console.error('Failed to load Three.js for rain scene.', error);
+        return;
+    }
+
+    if (!THREE) {
+        console.error('Three.js namespace is unavailable for rain scene.');
+        return;
+    }
+
     // Three.js Scene
     const scene = new THREE.Scene();
     const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
@@ -198,10 +223,12 @@ function initRainScene() {
     }
 }
 
+const startRainScene = () => initRainScene().catch((error) => {
+    console.error('Failed to initialise rain scene.', error);
+});
+
 if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', initRainScene, { once: true });
+    document.addEventListener('DOMContentLoaded', startRainScene, { once: true });
 } else {
-    initRainScene();
+    startRainScene();
 }
-
-

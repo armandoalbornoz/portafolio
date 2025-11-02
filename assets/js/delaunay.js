@@ -1,8 +1,35 @@
-import * as THREE from 'three';
-import * as d3 from 'd3';
-import { Delaunay } from 'd3-delaunay';
+import { loadWithFallback } from './module-loader.js';
 
-function initDelaunayPage() {
+const THREE_FALLBACK_URL = 'https://cdn.jsdelivr.net/npm/three@0.161.0/build/three.module.js';
+const D3_FALLBACK_URL = 'https://cdn.jsdelivr.net/npm/d3@7.9.0/+esm';
+const D3_DELAUNAY_FALLBACK_URL = 'https://cdn.jsdelivr.net/npm/d3-delaunay@6.0.2/+esm';
+
+async function initDelaunayPage() {
+    let THREE;
+    let d3;
+    let Delaunay;
+
+    try {
+        const [threeModule, d3Module, d3DelaunayModule] = await Promise.all([
+            loadWithFallback('three', THREE_FALLBACK_URL),
+            loadWithFallback('d3', D3_FALLBACK_URL),
+            loadWithFallback('d3-delaunay', D3_DELAUNAY_FALLBACK_URL)
+        ]);
+
+        THREE = threeModule?.default ?? threeModule;
+        d3 = d3Module?.default ?? d3Module;
+        const d3DelaunayNamespace = d3DelaunayModule?.default ?? d3DelaunayModule;
+        Delaunay = d3DelaunayNamespace?.Delaunay ?? d3?.Delaunay;
+    } catch (error) {
+        console.error('Failed to load interactive modules for Delaunay page.', error);
+        return;
+    }
+
+    if (!THREE || !d3 || !Delaunay) {
+        console.error('Missing required modules to initialise Delaunay page.');
+        return;
+    }
+
     const backgroundCanvas = document.getElementById('three-background');
     const svgElement = document.getElementById('delaunay-canvas');
     const controlContainer = document.querySelector('.control-buttons');
@@ -151,7 +178,7 @@ function initDelaunayPage() {
             return;
         }
 
-        const delaunay = d3.Delaunay.from(points);
+        const delaunay = Delaunay.from(points);
         const voronoi = delaunay.voronoi([0, 0, width, height]);
         const triangles = [...delaunay.trianglePolygons()];
 
@@ -330,11 +357,12 @@ function initDelaunayPage() {
     loadExample();
 }
 
+const startDelaunayPage = () => initDelaunayPage().catch((error) => {
+    console.error('Failed to initialise Delaunay page.', error);
+});
+
 if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', initDelaunayPage, { once: true });
+    document.addEventListener('DOMContentLoaded', startDelaunayPage, { once: true });
 } else {
-    initDelaunayPage();
+    startDelaunayPage();
 }
-
-
-

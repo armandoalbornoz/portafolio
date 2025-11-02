@@ -1,3 +1,5 @@
+import { loadWithFallback } from './module-loader.js';
+
 const MAX_DEVICE_PIXEL_RATIO = 1.5;
 const SMALL_VIEWPORT_WIDTH = 760;
 const SMALL_VIEWPORT_HEIGHT = 600;
@@ -7,14 +9,7 @@ const THREE_FALLBACK_URL = 'https://cdn.jsdelivr.net/npm/three@0.161.0/build/thr
 
 function loadThreeModule() {
     if (!threeModulePromise) {
-        threeModulePromise = (async () => {
-            try {
-                return await import('three');
-            } catch (error) {
-                console.warn('Failed to load local three module, using CDN fallback.', error);
-                return import(THREE_FALLBACK_URL);
-            }
-        })();
+        threeModulePromise = loadWithFallback('three', THREE_FALLBACK_URL);
     }
     return threeModulePromise;
 }
@@ -50,7 +45,8 @@ async function initPortfolioScene() {
     } else {
         canvasContainer.classList.remove('three-disabled');
         try {
-            const THREE = await loadThreeModule();
+            const threeModule = await loadThreeModule();
+            const THREE = threeModule?.default ?? threeModule;
 
         // Three.js Scene
         const scene = new THREE.Scene();
