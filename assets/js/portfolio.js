@@ -3,10 +3,18 @@ const SMALL_VIEWPORT_WIDTH = 760;
 const SMALL_VIEWPORT_HEIGHT = 600;
 
 let threeModulePromise;
+const THREE_FALLBACK_URL = 'https://cdn.jsdelivr.net/npm/three@0.161.0/build/three.module.js';
 
 function loadThreeModule() {
     if (!threeModulePromise) {
-        threeModulePromise = import('three');
+        threeModulePromise = (async () => {
+            try {
+                return await import('three');
+            } catch (error) {
+                console.warn('Failed to load local three module, using CDN fallback.', error);
+                return import(THREE_FALLBACK_URL);
+            }
+        })();
     }
     return threeModulePromise;
 }
