@@ -4,6 +4,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="Content-Security-Policy"
+        content="default-src 'self'; base-uri 'self'; object-src 'none'; form-action 'self'; script-src 'self' https://cdn.jsdelivr.net; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com data:; img-src 'self' data: https:; connect-src 'self' https://cdn.jsdelivr.net https://fonts.googleapis.com https://fonts.gstatic.com; frame-src 'self' https://rainendtoend.streamlit.app;">
+    <meta name="referrer" content="strict-origin-when-cross-origin">
     <title>Armando Albornoz · Software Engineer</title>
     <meta name="description"
         content="Software engineer and researcher blending formal mathematics with practical engineering to ship ML systems, computational geometry tooling, and polished product experiences.">
@@ -23,500 +26,146 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="preload"
-        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" as="style">
-
-
+        href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Sora:wght@300;400;500;600;700;800&family=Space+Mono:wght@400;700&display=swap"
+        as="style">
     <link rel="stylesheet"
-        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap"
-        media="print" onload="this.media='all'">
+        href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Sora:wght@300;400;500;600;700;800&family=Space+Mono:wght@400;700&display=swap">
     <link rel="preload" href="assets/css/base.css" as="style">
-    <link rel="stylesheet" href="assets/css/base.css" media="print" onload="this.media='all'">
+    <link rel="stylesheet" href="assets/css/base.css">
     <link rel="preload" href="assets/css/portfolio.css" as="style">
-    <link rel="stylesheet" href="assets/css/portfolio.css" media="print" onload="this.media='all'">
-    <link rel="icon" type="image/svg+xml"
-        href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%238b5cf6'/%3E%3Ctext x='16' y='22' text-anchor='middle' font-size='16' font-family='Inter,Arial,sans-serif' fill='white'%3EAA%3C/text%3E%3C/svg%3E">
+    <link rel="stylesheet" href="assets/css/portfolio.css">
+    <link rel="icon" type="image/svg+xml" href="favicon.svg">
     <link rel="canonical" href="https://armandoalbornoz.github.io/portafolio/">
-    <noscript>
-        <link rel="stylesheet"
-            href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap">
-        <link rel="stylesheet" href="assets/css/base.css">
-        <link rel="stylesheet" href="assets/css/portfolio.css">
-    </noscript>
-    <script type="module">
-        import('./assets/js/portfolio.entry.js');
-    </script>
+    <script type="module" src="assets/js/portfolio.entry.js"></script>
 </head>
 
-<body>
-    <div class="cursor"></div>
-    <div class="cursor-follower"></div>
-
+<body data-visual-mode="static">
     <div id="canvas-container"></div>
 
     <div class="content-wrapper">
-        <nav>
-            <div class="logo">AA</div>
-            <ul class="nav-menu">
-                <li><a href="#home">Home</a></li>
-                <li><a href="#about">About</a></li>
-                <li><a href="#experience">Experience</a></li>
-                <li><a href="#projects">Projects</a></li>
-                <li><a href="#skills">Skills</a></li>
-                <li><a href="#contact">Contact</a></li>
-            </ul>
-            <div class="nav-actions">
-                <a href="docs/resume.pdf" class="nav-cta" target="_blank" rel="noopener noreferrer">
-                    Resume
-                </a>
-                <a href="https://www.linkedin.com/in/armando-albornoz-2a7493285" class="nav-cta nav-cta--secondary"
-                    target="_blank" rel="noopener noreferrer">
-                    LinkedIn
-                </a>
+        <nav id="site-nav" aria-label="Primary">
+            <a href="#home" class="logo" aria-label="Armando Albornoz home">AA</a>
+            <button class="nav-toggle" id="nav-toggle" type="button" aria-expanded="false" aria-controls="nav-panel"
+                aria-label="Toggle navigation">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            <div class="nav-panel" id="nav-panel">
+                <ul class="nav-menu">
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#projects">Projects</a></li>
+                    <li><a href="#experience">Experience</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+                <div class="nav-actions" id="nav-actions"></div>
             </div>
         </nav>
 
-        <section class="hero" id="home">
-            <h1 class="hero-title">Armando<br>Albornoz</h1>
-            <p class="hero-subtitle">Mathematics & Computer Science</p>
-            <div class="hero-roles">
-                <span class="role">SOFTWARE ENGINEER</span>
-                <span class="role">UNDERGRADUATE RESEARCHER</span>
-                <span class="role">PROBLEM SOLVER</span>
-            </div>
-            <div class="scroll-indicator">
-                <p class="scroll-text">SCROLL TO EXPLORE</p>
-                <div class="scroll-line"></div>
-            </div>
-        </section>
-
-        <section class="about-section" id="about">
-            <div class="about-content">
-                <span class="section-label">ABOUT ME</span>
-                <h2 class="about-text">
-                    Solving <span class="highlight">computational problems</span> through the art of <span
-                        class="highlight">formal reasoning</span><span class="stars">✦✦</span>
-                </h2>
-                <p class="about-description">
-                    I'm a software engineer with a unique foundation: my passion for problem-solving was sparked by a
-                    library book on mathematical proofs. What began as curiosity about formal reasoning evolved into a
-                    rigorous education in Mathematics and Computer Science at the University of Florida, where I learned
-                    to approach complex problems with both analytical precision and practical solutions.
-                </p>
-                <p class="about-description">
-                    Currently I am pursuing my M.S. in Computer Science at Georgia Institute of Technology. I bring
-                    hands-on
-                    experience in building production-ready systems, from end-to-end ML pipelines and deep learning
-                    models to computational geometry projects. Through undergraduate research experiences, I've
-                    developed strong skills in algorithmic problem-solving and have contributed to published work
-                    presented at academic symposiums.
-                </p>
-                <p class="about-description">
-                    What sets me apart is my ability to bridge theory and practice: I can design elegant algorithms,
-                    implement scalable solutions, and communicate complex ideas clearly. I'm looking for a team where I
-                    can apply this combination of deep technical skills and practical engineering to build products that
-                    genuinely matter.
-                </p>
-
-                <div class="education-grid">
-                    <div class="education-card">
-                        <h3>University of Florida</h3>
-                        <p class="degree">B.S. Computer Science & Mathematics</p>
-                        <p class="date">Aug 2022 to May 2025 | GPA: 3.92</p>
+        <main class="page-shell">
+            <section class="hero hero--simple" id="home">
+                <div class="hero-copy hero-copy--centered">
+                    <div class="hero-kicker-row hero-kicker-row--centered">
+                        <span class="hero-kicker" id="hero-kicker"></span>
                     </div>
-                    <div class="education-card">
-                        <h3>Georgia Institute of Technology</h3>
-                        <p class="degree">M.S. Computer Science</p>
-                        <p class="date">Jan 2026 to Dec 2027</p>
+                    <h1 class="hero-title" id="hero-title"></h1>
+                    <p class="hero-subtitle" id="hero-subtitle"></p>
+                    <p class="hero-summary" id="hero-summary"></p>
+                    <div class="hero-roles hero-roles--centered" id="hero-roles"></div>
+                    <div class="hero-actions hero-actions--centered">
+                        <a class="hero-action hero-action--primary" id="hero-primary-cta"></a>
+                        <a class="hero-action hero-action--secondary" id="hero-secondary-cta"></a>
                     </div>
                 </div>
-            </div>
-        </section>
+            </section>
 
-        <section class="experience-section" id="experience">
-            <span class="section-label">EXPERIENCE</span>
-            <div class="experience-grid">
-                <div class="experience-card">
-                    <div class="experience-header">
+            <section class="overview-section scroll-stage scroll-stage--panel">
+                <div class="overview-grid" id="overview-grid" data-scroll-surface></div>
+            </section>
+
+            <section class="assistant-section scroll-stage scroll-stage--compact" id="assistant">
+                <div class="assistant-inline" data-scroll-surface>
+                    <div class="assistant-inline__header">
+                        <p class="assistant-inline__eyebrow" id="assistant-badge"></p>
+                        <h2 class="assistant-inline__title" id="assistant-title"></h2>
+                        <p class="assistant-inline__description" id="assistant-description"></p>
+                    </div>
+                    <div class="assistant-inline__prompts" id="assistant-widget-prompts"></div>
+                    <div class="assistant-inline__shell">
+                        <div class="assistant-inline__messages" id="assistant-messages"></div>
+                        <form class="assistant-inline__form" id="assistant-form">
+                            <label class="sr-only" for="assistant-input">Ask a question about Armando</label>
+                            <textarea id="assistant-input" class="assistant-inline__input"
+                                placeholder="What would you like to know?" rows="1"></textarea>
+                            <button type="submit" class="assistant-inline__send" aria-label="Send message">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                                    stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                                    <path d="M12 19V5"></path>
+                                    <path d="M5 12l7-7 7 7"></path>
+                                </svg>
+                            </button>
+                        </form>
+                    </div>
+                    <p class="assistant-inline__disclaimer" id="assistant-disclaimer"></p>
+                </div>
+            </section>
+
+            <section class="about-section scroll-stage scroll-stage--panel" id="about">
+                <div class="section-shell" data-scroll-surface>
+                    <div class="about-layout">
+                        <div class="about-content">
+                            <div class="section-intro about-intro">
+                                <span class="section-label" id="about-label"></span>
+                                <h2 class="section-title about-text" id="about-heading"></h2>
+                                <p class="section-summary" id="about-summary"></p>
+                            </div>
+                            <div class="about-copy" id="about-descriptions"></div>
+                        </div>
+                        <div class="about-rail">
+                            <div class="education-grid" id="education-grid"></div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="projects-section scroll-stage" id="projects">
+                <div class="section-shell" data-scroll-surface>
+                    <div class="section-intro section-intro--row">
                         <div>
-                            <h3 class="experience-title">Undergraduate Research</h3>
-                            <p class="experience-company">University of Florida</p>
-                        </div>
-                        <p class="experience-date">Jan 2025 to May 2025</p>
-                    </div>
-                    <div class="experience-description">
-                        <p>Research on refinement and angle optimization for order-2 Delaunay triangulations.</p>
-                        <ul>
-                            <li>Proposed and implemented a novel algorithm using 3D convex hulls to incrementally
-                                construct an order-2 triangulation</li>
-                            <li>Performed statistical analysis of angle distributions across various point sets</li>
-                            <li>Found evidence that refinement methods of order-1 triangulations generalize to order-2
-                                triangulations</li>
-                            <li>Developed visualization tools to display triangulations and angle distribution results
-                            </li>
-                        </ul>
-                        <div class="project-actions">
-                            <a href="docs/delaunay-milestone.pdf" class="project-btn" target="_blank"
-                                rel="noopener noreferrer">
-                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                    <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
-                                    <polyline points="14 2 14 8 20 8"></polyline>
-                                    <line x1="16" y1="13" x2="8" y2="13"></line>
-                                    <line x1="16" y1="17" x2="8" y2="17"></line>
-                                </svg>
-                                Read Paper
-                            </a>
+                            <span class="section-label" id="projects-label"></span>
+                            <h2 class="section-title">Work</h2>
+                            <p class="section-summary" id="projects-summary"></p>
                         </div>
                     </div>
+                    <div class="projects-grid" id="projects-grid"></div>
                 </div>
+            </section>
 
-                <div class="experience-card">
-                    <div class="experience-header">
+            <section class="experience-section scroll-stage" id="experience">
+                <div class="section-shell" data-scroll-surface>
+                    <div class="section-intro section-intro--row">
                         <div>
-                            <h3 class="experience-title">Undergraduate Research</h3>
-                            <p class="experience-company">University of Florida</p>
+                            <span class="section-label" id="experience-label"></span>
+                            <h2 class="section-title">Research and Experience</h2>
+                            <p class="section-summary" id="experience-summary"></p>
                         </div>
-                        <p class="experience-date">Oct 2023 to May 2024</p>
                     </div>
-                    <div class="experience-description">
-                        <p>Mathematical research on metric space analysis.</p>
-                        <ul>
-                            <li>Co-authored a paper analyzing Hausdorff and Gromov-Hausdorff distances between metric
-                                spaces</li>
-                            <li>Contributed foundational definitions and proof structures supporting the main theorems
-                            </li>
-                            <li>Presented findings at the UF Research Math Symposium</li>
-                            <li>Published research on arXiv</li>
-                        </ul>
-                        <div class="project-actions">
-                            <a href="https://arxiv.org/pdf/2410.14938" class="project-btn" target="_blank"
-                                rel="noopener noreferrer">
-                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                    <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
-                                    <polyline points="14 2 14 8 20 8"></polyline>
-                                    <line x1="16" y1="13" x2="8" y2="13"></line>
-                                    <line x1="16" y1="17" x2="8" y2="17"></line>
-                                </svg>
-                                Read Paper
-                            </a>
-                        </div>
+                    <div class="experience-grid" id="experience-grid"></div>
+                </div>
+            </section>
+
+            <section class="contact-section scroll-stage scroll-stage--compact" id="contact">
+                <div class="section-shell contact-shell contact-shell--simple" data-scroll-surface>
+                    <div class="contact-copy">
+                        <h2 class="contact-title" id="contact-title"></h2>
+                        <p class="contact-description" id="contact-description"></p>
+                        <div class="contact-links" id="contact-links"></div>
                     </div>
                 </div>
-            </div>
-        </section>
+            </section>
+        </main>
 
-        <section class="projects-section" id="projects">
-            <span class="section-label">SELECTED WORK</span>
-            <div class="projects-grid">
-                <div class="project-card">
-                    <div class="project-content">
-                        <h3 class="project-title">EmberAI</h3>
-                        <p class="project-tags">OpenAI, DeepSeek, Vue.js, Electron | Oct 2025 to Present</p>
-                        <div class="project-description">
-                            <p>An intelligent, fully animated desktop companion capable of real-time speech, chat, and
-                                gameplay.</p>
-                            <ul>
-                                <li>Integrating multimodal AI via OpenAI and DeepSeek APIs for speech synthesis and
-                                    emotion-aware dialogue</li>
-                                <li>Building cross-platform Electron + Vue.js interface with persistent on-screen
-                                    animation</li>
-                                <li>Goal: Deploy as Twitch streamer capable of engaging with audiences in real time</li>
-                            </ul>
-
-                        </div>
-                        <div class="project-actions">
-                            <a href="#coming-soon" class="project-btn">
-                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                    <circle cx="12" cy="12" r="10"></circle>
-                                    <path d="M8 14s1.5 2 4 2 4-2 4-2"></path>
-                                    <line x1="9" y1="9" x2="9.01" y2="9"></line>
-                                    <line x1="15" y1="9" x2="15.01" y2="9"></line>
-                                </svg>
-                                Coming Soon
-                            </a>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="project-card">
-                    <div class="project-content">
-                        <h3 class="project-title">Rain Prediction ML Pipeline</h3>
-                        <p class="project-tags">MLflow, DVC, Streamlit, PostgreSQL | Jul 2025 to Aug 2025</p>
-                        <div class="project-description">
-                            <p>End-to-end machine learning pipeline for rainfall prediction.</p>
-                            <ul>
-                                <li>Built modular, configuration-driven pipeline using Open-Meteo API data</li>
-                                <li>Developed ETL pipeline to PostgreSQL RDS instance</li>
-                                <li>Trained multiple estimators with DVC versioning and MLflow tracking</li>
-                                <li>Deployed Streamlit app serving real-time predictions</li>
-                            </ul>
-                            <div class="project-metrics">
-                                <span class="metric-chip"><strong>10K+</strong> weather rows ingested</span>
-                                <span class="metric-chip"><strong>3</strong> models tracked in MLflow</span>
-                                <span class="metric-chip"><strong>24/7</strong> live predictions</span>
-                            </div>
-                        </div>
-                        <div class="project-actions">
-                            <a href="rain-prediction-demo.html" class="project-btn">
-                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                    <circle cx="12" cy="12" r="10"></circle>
-                                    <path d="M8 14s1.5 2 4 2 4-2 4-2"></path>
-                                    <line x1="9" y1="9" x2="9.01" y2="9"></line>
-                                    <line x1="15" y1="9" x2="15.01" y2="9"></line>
-                                </svg>
-                                View Demo
-                            </a>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="project-card">
-                    <div class="project-content">
-                        <h3 class="project-title">Vision Transformer Implementation</h3>
-                        <p class="project-tags">Python, PyTorch | May 2025 to Jul 2025</p>
-                        <div class="project-description">
-                            <p>Deep learning model comparison for food classification.</p>
-                            <ul>
-                                <li>Implemented and compared ViT and EfficientNetB2 architectures</li>
-                                <li>Fine-tuned models using transfer learning on custom dataset</li>
-                                <li>Deployed best-performing model to Hugging Face Spaces with Gradio</li>
-                            </ul>
-                            <div class="project-metrics">
-                                <span class="metric-chip"><strong>2</strong> SOTA architectures benchmarked</span>
-                            </div>
-                        </div>
-                        <div class="project-actions">
-                            <a href="#coming-soon" class="project-btn">
-                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                    <circle cx="12" cy="12" r="10"></circle>
-                                    <path d="M8 14s1.5 2 4 2 4-2 4-2"></path>
-                                    <line x1="9" y1="9" x2="9.01" y2="9"></line>
-                                    <line x1="15" y1="9" x2="15.01" y2="9"></line>
-                                </svg>
-                                Coming Soon
-                            </a>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="project-card">
-                    <div class="project-content">
-                        <h3 class="project-title">Order-2 Delaunay Triangulation Research</h3>
-                        <p class="project-tags">Computational Geometry, Python, Visualization | Jan 2025 to May 2025</p>
-                        <div class="project-description">
-                            <p>Research on refinement and angle optimization for order-2 Delaunay triangulations at the
-                                University of Florida.</p>
-                            <ul>
-                                <li>Proposed and implemented a novel algorithm using 3D convex hulls to incrementally
-                                    construct order-2 triangulations</li>
-                                <li>Performed statistical analysis of angle distributions across various point sets</li>
-                                <li>Found evidence that refinement methods of order-1 triangulations generalize to
-                                    order-2 triangulations</li>
-                                <li>Developed visualization tools to display triangulations and angle distribution
-                                    results</li>
-                            </ul>
-                            <div class="project-metrics">
-                                <span class="metric-chip"><strong></strong> research collaboration</span>
-                                <span class="metric-chip"><strong>2</strong> refinement techniques evaluated</span>
-                            </div>
-                        </div>
-                        <div class="project-actions">
-                            <a href="delaunay-research-final-with-pdf.html" class="project-btn">
-                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                    <circle cx="12" cy="12" r="10"></circle>
-                                    <path d="M8 14s1.5 2 4 2 4-2 4-2"></path>
-                                    <line x1="9" y1="9" x2="9.01" y2="9"></line>
-                                    <line x1="15" y1="9" x2="15.01" y2="9"></line>
-                                </svg>
-                                Explore Case Study
-                            </a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <section class="skills-section" id="skills">
-            <span class="section-label">TECHNICAL SKILLS</span>
-            <div class="skills-container">
-                <div class="skills-grid">
-                    <div class="skill-category">
-                        <h3 class="skill-category-title">
-                            <svg class="skill-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                                stroke-width="2">
-                                <polyline points="16 18 22 12 16 6"></polyline>
-                                <polyline points="8 6 2 12 8 18"></polyline>
-                            </svg>
-                            Languages
-                        </h3>
-                        <div class="skill-tags">
-                            <span class="skill-tag">Python</span>
-                            <span class="skill-tag">C++</span>
-                            <span class="skill-tag">JavaScript</span>
-                            <span class="skill-tag">TypeScript</span>
-                            <span class="skill-tag">SQL</span>
-                            <span class="skill-tag">Java</span>
-                        </div>
-                    </div>
-
-                    <div class="skill-category">
-                        <h3 class="skill-category-title">
-                            <svg class="skill-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                                stroke-width="2">
-                                <rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect>
-                                <line x1="8" y1="21" x2="16" y2="21"></line>
-                                <line x1="12" y1="17" x2="12" y2="21"></line>
-                            </svg>
-                            ML/AI & Data
-                        </h3>
-                        <div class="skill-tags">
-                            <span class="skill-tag">PyTorch</span>
-                            <span class="skill-tag">TensorFlow</span>
-                            <span class="skill-tag">scikit-learn</span>
-                            <span class="skill-tag">Pandas</span>
-                            <span class="skill-tag">NumPy</span>
-                            <span class="skill-tag">MLflow</span>
-                            <span class="skill-tag">DVC</span>
-                        </div>
-                    </div>
-
-                    <div class="skill-category">
-                        <h3 class="skill-category-title">
-                            <svg class="skill-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                                stroke-width="2">
-                                <path
-                                    d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z">
-                                </path>
-                                <polyline points="3.27 6.96 12 12.01 20.73 6.96"></polyline>
-                                <line x1="12" y1="22.08" x2="12" y2="12"></line>
-                            </svg>
-                            Frameworks & Libraries
-                        </h3>
-                        <div class="skill-tags">
-                            <span class="skill-tag">Node.js</span>
-                            <span class="skill-tag">Electron</span>
-                            <span class="skill-tag">Streamlit</span>
-                            <span class="skill-tag">Gradio</span>
-                        </div>
-                    </div>
-
-                    <div class="skill-category">
-                        <h3 class="skill-category-title">
-                            <svg class="skill-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                                stroke-width="2">
-                                <circle cx="12" cy="12" r="10"></circle>
-                                <line x1="2" y1="12" x2="22" y2="12"></line>
-                                <path
-                                    d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z">
-                                </path>
-                            </svg>
-                            Tools & Technologies
-                        </h3>
-                        <div class="skill-tags">
-                            <span class="skill-tag">Git</span>
-                            <span class="skill-tag">Docker</span>
-                            <span class="skill-tag">AWS</span>
-                            <span class="skill-tag">PostgreSQL</span>
-                            <span class="skill-tag">Linux</span>
-                        </div>
-                    </div>
-
-                    <div class="skill-category">
-                        <h3 class="skill-category-title">
-                            <svg class="skill-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                                stroke-width="2">
-                                <path d="M12 2L2 7l10 5 10-5-10-5z"></path>
-                                <path d="M2 17l10 5 10-5"></path>
-                                <path d="M2 12l10 5 10-5"></path>
-                            </svg>
-                            Core Competencies
-                        </h3>
-                        <div class="skill-tags">
-                            <span class="skill-tag">Algorithms</span>
-                            <span class="skill-tag">Data Structures</span>
-                            <span class="skill-tag">Computer Vision</span>
-                            <span class="skill-tag">NLP</span>
-                        </div>
-                    </div>
-
-                    <div class="skill-category">
-                        <h3 class="skill-category-title">
-                            <svg class="skill-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                                stroke-width="2">
-                                <path
-                                    d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z">
-                                </path>
-                            </svg>
-                            Mathematics & Research
-                        </h3>
-                        <div class="skill-tags">
-                            <span class="skill-tag">Linear Algebra</span>
-                            <span class="skill-tag">Calculus</span>
-                            <span class="skill-tag">Probability</span>
-                            <span class="skill-tag">Statistics</span>
-                            <span class="skill-tag">Computational Geometry</span>
-                            <span class="skill-tag">Optimization</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <section class="contact-section" id="contact">
-            <h2 class="contact-title">Let's build something<br>impactful together</h2>
-            <p class="contact-description">
-                I'm seeking opportunities where I can leverage my background in mathematics and computer science to
-                tackle challenging problems and create meaningful solutions. Whether it's developing robust software
-                systems or building data-driven applications, I'm excited to contribute to teams that value rigorous
-                problem-solving and innovative thinking.
-            </p>
-            <div class="contact-links">
-                <div class="contact-row contact-email">
-                    <div class="contact-email-actions">
-                        <a href="mailto:albornoz.armando31416@gmail.com" class="contact-link contact-email-link">
-                            <svg class="contact-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                                stroke-width="2">
-                                <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z">
-                                </path>
-                                <polyline points="22,6 12,13 2,6"></polyline>
-                            </svg>
-                            <span class="contact-email-text">albornoz.armando31416@gmail.com</span>
-                        </a>
-                        <button type="button" class="copy-email-btn" data-email="albornoz.armando31416@gmail.com"
-                            aria-label="Copy email address">
-                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
-                                <path d="M5 15H4a2 2 0 01-2-2V4a2 2 0 012-2h9a2 2 0 012 2v1"></path>
-                            </svg>
-                            <span class="copy-email-label">Copy</span>
-                        </button>
-                    </div>
-                    <span class="copy-feedback" aria-live="polite"></span>
-                </div>
-                <div class="contact-row">
-                    <a href="https://www.linkedin.com/in/armando-albornoz-2a7493285" target="_blank"
-                        rel="noopener noreferrer" class="contact-link">
-                        <svg class="contact-icon" viewBox="0 0 24 24" fill="currentColor">
-                            <path
-                                d="M20.5 2h-17A1.5 1.5 0 002 3.5v17A1.5 1.5 0 003.5 22h17a1.5 1.5 0 001.5-1.5v-17A1.5 1.5 0 0020.5 2zM8 19H5v-9h3zM6.5 8.25A1.75 1.75 0 118.3 6.5a1.78 1.78 0 01-1.8 1.75zM19 19h-3v-4.74c0-1.42-.6-1.93-1.38-1.93A1.74 1.74 0 0013 14.19a.66.66 0 000 .14V19h-3v-9h2.9v1.3a3.11 3.11 0 012.7-1.4c1.55 0 3.36.86 3.36 3.66z">
-                            </path>
-                        </svg>
-                        LinkedIn
-                    </a>
-                    <a href="https://github.com/armandoalbornoz" target="_blank" rel="noopener noreferrer"
-                        class="contact-link">
-                        <svg class="contact-icon" viewBox="0 0 24 24" fill="currentColor">
-                            <path
-                                d="M12 2C6.477 2 2 6.477 2 12c0 4.42 2.865 8.17 6.839 9.49.5.092.682-.217.682-.482 0-.237-.008-.866-.013-1.7-2.782.603-3.369-1.34-3.369-1.34-.454-1.156-1.11-1.463-1.11-1.463-.908-.62.069-.608.069-.608 1.003.07 1.531 1.03 1.531 1.03.892 1.529 2.341 1.087 2.91.831.092-.646.35-1.086.636-1.336-2.22-.253-4.555-1.11-4.555-4.943 0-1.091.39-1.984 1.029-2.683-.103-.253-.446-1.27.098-2.647 0 0 .84-.269 2.75 1.025A9.578 9.578 0 0112 6.836c.85.004 1.705.114 2.504.336 1.909-1.294 2.747-1.025 2.747-1.025.546 1.377.203 2.394.1 2.647.64.699 1.028 1.592 1.028 2.683 0 3.842-2.339 4.687-4.566 4.935.359.309.678.919.678 1.852 0 1.336-.012 2.415-.012 2.743 0 .267.18.578.688.48C19.138 20.167 22 16.418 22 12c0-5.523-4.477-10-10-10z">
-                            </path>
-                        </svg>
-                        GitHub
-                    </a>
-                </div>
-            </div>
-        </section>
-
-
-        <!-- Coming Soon Modal -->
         <div id="coming-soon-modal" class="modal">
             <div class="modal-content">
                 <button class="modal-close" type="button" data-modal-close>&times;</button>
@@ -526,20 +175,16 @@
                         <polyline points="12 6 12 12 16 14"></polyline>
                     </svg>
                 </div>
-                <h2 class="modal-title">Coming Soon!</h2>
-                <p class="modal-description">
-                    I'm currently working on deploying this project demo. Check back soon or reach out to me for a
-                    private demonstration of this project.
-                </p>
-                <a href="#contact" class="modal-btn" data-modal-close>Get in Touch</a>
+                <h2 class="modal-title" id="modal-title"></h2>
+                <p class="modal-description" id="modal-description"></p>
+                <a href="#contact" class="modal-btn" data-modal-close id="modal-button"></a>
             </div>
         </div>
 
         <footer class="footer">
-            <p>Armando Albornoz © 2025</p>
+            <p id="footer-text"></p>
         </footer>
     </div>
-
 </body>
 
 </html>

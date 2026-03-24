@@ -4,123 +4,48 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="Content-Security-Policy"
+        content="default-src 'self'; base-uri 'self'; object-src 'none'; form-action 'self'; script-src 'self' https://cdn.jsdelivr.net; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com data:; img-src 'self' data: https:; connect-src 'self' https://cdn.jsdelivr.net https://fonts.googleapis.com https://fonts.gstatic.com; frame-src 'self' https://rainendtoend.streamlit.app;">
+    <meta name="referrer" content="strict-origin-when-cross-origin">
     <title>Rain Prediction ML Pipeline - Demo</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Sora:wght@300;400;500;600;700;800&family=Space+Mono:wght@400;700&display=swap">
     <link rel="stylesheet" href="assets/css/base.css">
     <link rel="stylesheet" href="assets/css/rain.css">
-    <link rel="icon" type="image/svg+xml"
-        href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%238b5cf6'/%3E%3Ctext x='16' y='22' text-anchor='middle' font-size='16' font-family='Inter,Arial,sans-serif' fill='white'%3EAA%3C/text%3E%3C/svg%3E">
-    <script type="module">
-        import('./assets/js/rain.entry.js');
-    </script>
+    <link rel="icon" type="image/svg+xml" href="favicon.svg">
+    <script type="module" src="assets/js/rain.entry.js"></script>
 </head>
 
 <body>
-    <div class="cursor"></div>
-    <div class="cursor-follower"></div>
-
     <div id="canvas-container"></div>
 
     <div class="content-wrapper">
-        <a href="index.html" class="back-button">
+        <a href="index.html" class="back-button" id="rain-back-link">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                 <path d="M19 12H5M12 19l-7-7 7-7" />
             </svg>
-            Back to Portfolio
+            <span id="rain-back-label"></span>
         </a>
 
         <div class="container">
             <div class="header">
-                <h1 class="project-title">Rain Prediction ML Pipeline</h1>
-                <p class="project-subtitle">End-to-end machine learning solution for accurate rainfall forecasting</p>
-                <div class="tech-tags">
-                    <span class="tech-tag">MLflow</span>
-                    <span class="tech-tag">DVC</span>
-                    <span class="tech-tag">Streamlit</span>
-                    <span class="tech-tag">PostgreSQL</span>
-                    <span class="tech-tag">Python</span>
-                    <span class="tech-tag">scikit-learn</span>
-                </div>
+                <h1 class="project-title" id="rain-title"></h1>
+                <p class="project-subtitle" id="rain-subtitle"></p>
+                <div class="tech-tags" id="rain-tech-tags"></div>
             </div>
 
             <div class="content-grid">
-                <div class="info-panel">
-                    <div class="info-section">
-                        <h2 class="info-title">
-
-                            Project Overview
-                        </h2>
-                        <p class="info-text">
-                            A production-ready ML pipeline that predicts rainfall using historical weather data from the
-                            Open-Meteo API. The system demonstrates modern MLOps practices with automated data
-                            versioning, experiment tracking, and model deployment.
-                        </p>
-                    </div>
-
-                    <div class="info-section">
-                        <h2 class="info-title">
-
-                            Key Features
-                        </h2>
-                        <ul class="info-list">
-                            <li>Modular, configuration-driven architecture for easy maintenance</li>
-                            <li>ETL pipeline with PostgreSQL RDS for scalable data storage</li>
-                            <li>Multiple model training with hyperparameter optimization</li>
-                            <li>DVC for data and model versioning</li>
-                            <li>MLflow for experiment tracking and model registry</li>
-                            <li>Real-time predictions via Streamlit interface</li>
-                        </ul>
-                    </div>
-
-                    <div class="info-section">
-                        <h2 class="info-title">
-
-                            Technical Highlights
-                        </h2>
-                        <ul class="info-list">
-                            <li>Clean code architecture with separation of concerns</li>
-                            <li>Automated data pipeline from API to database</li>
-                            <li>Model comparison across multiple estimators</li>
-                            <li>Cloud deployment on Streamlit Community Cloud</li>
-                            <li>Version control for datasets and models</li>
-                        </ul>
-                    </div>
-
-                    <div class="info-section">
-                        <h2 class="info-title">
-
-                            Performance Metrics
-                        </h2>
-                        <div class="metrics-grid">
-                            <div class="metric-card">
-                                <div class="metric-value">3+</div>
-                                <div class="metric-label">Models Trained</div>
-                            </div>
-                            <div class="metric-card">
-                                <div class="metric-value">10K+</div>
-                                <div class="metric-label">Data Points</div>
-                            </div>
-                            <div class="metric-card">
-                                <div class="metric-value">100%</div>
-                                <div class="metric-label">Automated</div>
-                            </div>
-                            <div class="metric-card">
-                                <div class="metric-value">24/7</div>
-                                <div class="metric-label">Available</div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+                <div class="info-panel" id="rain-info-sections"></div>
 
                 <div class="demo-panel">
                     <div class="demo-header">
-                        <h2 class="demo-title">Interactive Demo</h2>
-                        <p class="demo-description">
-                            Try the live rainfall prediction model below. Enter location and weather parameters to get
-                            real-time predictions based on historical data patterns.
-                        </p>
+                        <h2 class="demo-title" id="rain-demo-title"></h2>
+                        <p class="demo-description" id="rain-demo-description"></p>
                         <a href="https://rainendtoend.streamlit.app/" target="_blank" rel="noopener noreferrer"
-                            class="external-link">
-                            Open in New Tab
+                            class="external-link" id="rain-demo-link">
+                            <span id="rain-demo-link-label"></span>
                             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                                 <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
                                 <polyline points="15 3 21 3 21 9"></polyline>
@@ -140,14 +65,11 @@
                                     <path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path>
                                 </svg>
                             </div>
-                            <h3 class="fallback-title">Direct Access Required</h3>
-                            <p class="fallback-text">
-                                The interactive demo works best when opened in a new tab. Click the button below to
-                                access the full Streamlit application.
-                            </p>
+                            <h3 class="fallback-title" id="rain-fallback-title"></h3>
+                            <p class="fallback-text" id="rain-fallback-text"></p>
                             <a href="https://rainendtoend.streamlit.app/" target="_blank" rel="noopener noreferrer"
-                                class="fallback-button">
-                                Open Demo
+                                class="fallback-button" id="rain-fallback-button">
+                                <span id="rain-fallback-button-label"></span>
                                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
                                     style="width: 16px; height: 16px;">
                                     <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
@@ -157,6 +79,8 @@
                             </a>
                         </div>
                         <iframe id="demoIframe" src="https://rainendtoend.streamlit.app/?embedded=true" allowfullscreen
+                            loading="lazy" referrerpolicy="strict-origin-when-cross-origin"
+                            sandbox="allow-scripts allow-same-origin allow-forms allow-downloads allow-popups"
                             title="Rain Prediction Demo"></iframe>
                     </div>
                 </div>

@@ -1,0 +1,766 @@
+{
+  "global": {
+    "name": "Armando Albornoz",
+    "shortName": "AA",
+    "email": "albornoz.armando31416@gmail.com",
+    "linkedinUrl": "https://www.linkedin.com/in/armando-albornoz-2a7493285",
+    "githubUrl": "https://github.com/armandoalbornoz",
+    "resumePath": "docs/resume.pdf",
+    "portfolioPath": "index.html"
+  },
+  "home": {
+    "seo": {
+      "title": "Armando Albornoz · Software Engineer",
+      "description": "Software engineer and researcher blending formal mathematics with practical engineering to ship ML systems, computational geometry tooling, and polished product experiences.",
+      "url": "https://armandoalbornoz.github.io/portafolio/",
+      "image": "https://armandoalbornoz.github.io/portafolio/og-image.svg"
+    },
+    "nav": {
+      "resumeLabel": "Resume",
+      "linkedinLabel": "LinkedIn"
+    },
+    "overviewCards": [
+      {
+        "title": "About",
+        "description": "Background, education, and the way I approach difficult technical work.",
+        "href": "#about",
+        "tone": "sage",
+        "icon": "profile"
+      },
+      {
+        "title": "Projects",
+        "description": "Machine learning, automation, and end-to-end systems builds.",
+        "href": "#projects",
+        "tone": "cyan",
+        "icon": "stack"
+      },
+      {
+        "title": "Experience",
+        "description": "Research experience with emphasis on algorithms, experimentation, and technical depth.",
+        "href": "#experience",
+        "tone": "amber",
+        "icon": "compass"
+      },
+      {
+        "title": "Contact",
+        "description": "How to reach me quickly, plus links to resume, GitHub, and LinkedIn.",
+        "href": "#contact",
+        "tone": "neutral",
+        "icon": "send"
+      }
+    ],
+    "hero": {
+      "kicker": "",
+      "titleHtml": "Armando<br>Albornoz",
+      "subtitle": "I build machine learning and software projects, and I like working on problems that need both theory and implementation.",
+      "summary": "I'm a software engineer and machine learning student at Georgia Tech. Most of my work sits somewhere between research, data, and building things people can actually use.",
+      "roles": [
+        "Machine Learning",
+        "Systems Thinking",
+        "Research Rigor"
+      ],
+      "primaryCta": {
+        "label": "Open Resume",
+        "href": "docs/resume.pdf"
+      },
+      "secondaryCta": {
+        "label": "See Projects",
+        "href": "#projects"
+      },
+      "stats": [
+        {
+          "value": "3",
+          "label": "flagship projects"
+        },
+        {
+          "value": "2",
+          "label": "research tracks"
+        },
+        {
+          "value": "10K+",
+          "label": "rows processed in production-style ML work"
+        }
+      ],
+      "scrollLabel": "SCROLL TO EXPLORE"
+    },
+    "assistant": {
+      "title": "Ask ArmandoGPT",
+      "badge": "",
+      "description": "Ask about my projects, research, coursework, or how to reach me.",
+      "previewPrompt": "What should I know about Armando in 30 seconds?",
+      "previewAnswer": "He's a software engineer and ML student with a math background, hands-on project experience, and research experience in computational geometry and metric spaces.",
+      "starterPrompts": [
+        "Who is Armando?",
+        "What machine learning projects has he built?",
+        "Tell me about the ML evaluation study",
+        "Tell me about the content engine",
+        "What roles is he targeting?",
+        "How can I contact him?"
+      ],
+      "disclaimer": "Grounded on the portfolio content and documents."
+    },
+    "about": {
+      "label": "ABOUT ME",
+      "summary": "I like working on technical problems that need both strong fundamentals and practical engineering.",
+      "headingHtml": "I like turning <span class=\"highlight\">hard technical ideas</span> into <span class=\"highlight\">working software</span><span class=\"stars\">✦✦</span>",
+      "paragraphs": [
+        "I'm a software engineer with a background in math and computer science. I got into this through problem solving and proofs, and that still shapes the way I work today.",
+        "Right now I'm doing my M.S. in Computer Science at Georgia Tech. I've worked on ML pipelines, deep learning projects, and computational geometry research, and I also hold the AWS Certified Developer - Associate certification.",
+        "What I enjoy most is going from a rough idea to something real: understanding the problem, building the system, and being able to explain the tradeoffs clearly."
+      ],
+      "education": [
+        {
+          "school": "Georgia Institute of Technology",
+          "degree": "M.S. Computer Science",
+          "date": "Jan 2026 to Dec 2027"
+        },
+        {
+          "school": "University of Florida",
+          "degree": "B.S. Computer Science & Mathematics",
+          "date": "Aug 2022 to May 2025 | GPA: 3.92"
+        }
+      ],
+      "certifications": [
+        {
+          "issuer": "Amazon Web Services",
+          "title": "AWS Certified Developer - Associate",
+          "date": "Issued Jan 2026"
+        }
+      ]
+    },
+    "experience": {
+      "label": "EXPERIENCE",
+      "summary": "Research experience in computational geometry and metric geometry, with work spanning algorithm design, proof-based analysis, and technical experimentation at the University of Florida.",
+      "items": [
+        {
+          "title": "Undergraduate Research",
+          "company": "University of Florida",
+          "figure": "delaunay",
+          "date": "Jan 2025 to May 2025",
+          "summary": "Computational geometry research on faster Order-2 Delaunay triangulation algorithms and higher-order refinement behavior.",
+          "bullets": [
+            "Developed a novel incremental algorithm for Order-2 Delaunay triangulations, achieving a 23.4% speedup over state-of-the-art Rhomboid Tiling implementations.",
+            "Engineered a 3D paraboloid projection framework capable of processing 1000+ data points.",
+            "Showed that standard mesh refinement techniques generalize to higher-order triangulations."
+          ],
+          "action": {
+            "href": "docs/delaunay-milestone.pdf",
+            "label": "Read Paper",
+            "icon": "document",
+            "target": "_blank"
+          }
+        },
+        {
+          "title": "Undergraduate Research",
+          "company": "University of Florida",
+          "figure": "metric",
+          "date": "Oct 2023 to May 2024",
+          "summary": "Metric geometry research on quotient spaces and the failure of Gromov-Hausdorff distance preservation.",
+          "bullets": [
+            "Co-authored research on Metric Geometry, proving Gromov-Hausdorff distances are not preserved under quotient spaces; published on arXiv:2410.14938 and presented at the UF Math Symposium.",
+            "Developed formal proofs demonstrating that distance ratios under group actions can be made arbitrarily large or small, refuting standard stability assumptions.",
+            "Constructed specific geometric counter-examples using G-invariant subsets."
+          ],
+          "action": {
+            "href": "https://arxiv.org/pdf/2410.14938",
+            "label": "Read Paper",
+            "icon": "document",
+            "target": "_blank"
+          }
+        }
+      ]
+    },
+    "projects": {
+      "label": "SELECTED WORK",
+      "summary": "A few projects that show the kind of work I like doing.",
+      "items": [
+        {
+          "title": "Machine Learning Evaluation & Optimization Study",
+          "figure": "studies",
+          "tags": "Python, PyTorch, scikit-learn | Jan 2026 to Present",
+          "summary": "An ongoing Georgia Tech machine learning study focused on reproducible evaluation, model tuning, and optimization ablations across two classification tasks.",
+          "bullets": [
+            "Built a reproducible benchmarking pipeline across 2 classification problems with 48,719 total records, using preprocessing, stratified splits, and cross-validation to compare tree-based, kernel-based, and neural models",
+            "Improved the best binary classifier to 0.6859 F1 / 0.7808 PR-AUC, raising F1 by 4.2% over baseline through systematic tuning of an SGD-based MLP",
+            "Optimized training efficiency through ablations over 3 search methods and 7 optimizers, cutting time-to-target by 45% and steps-to-target by 66%, while increasing multiclass Macro-F1 to 0.3458"
+          ],
+          "metrics": [
+            {
+              "value": "48,719",
+              "label": "records benchmarked"
+            },
+            {
+              "value": "0.7808",
+              "label": "best PR-AUC"
+            },
+            {
+              "value": "45%",
+              "label": "faster time-to-target"
+            }
+          ],
+          "action": {
+            "href": "ml-learning-studies.html",
+            "label": "View Ongoing Case Study",
+            "icon": "status"
+          }
+        },
+        {
+          "title": "Autonomous YouTube Content Engine",
+          "figure": "youtube",
+          "tags": "GPT-5.2, FFmpeg, OpenAI API | Oct 2025 to Present",
+          "summary": "A zero-touch content pipeline for generating, assembling, and publishing YouTube videos automatically.",
+          "bullets": [
+            "Architected a zero-touch content pipeline that generated 53,000+ views within 30 days by utilizing several machine learning models for scriptwriting, asset generation, and voiceovers",
+            "Achieved a 100% reduction in production overhead by developing a headless video assembly and editing system using FFmpeg, enabling daily automated uploads with zero manual intervention",
+            "Engineered an automated metadata and upload optimization engine via the YouTube Data API"
+          ],
+          "metrics": [
+            {
+              "value": "53K+",
+              "label": "views in 30 days"
+            },
+            {
+              "value": "100%",
+              "label": "production overhead removed"
+            },
+            {
+              "value": "0-touch",
+              "label": "daily upload pipeline"
+            }
+          ],
+          "action": {
+            "href": "#coming-soon",
+            "label": "Case Study Soon",
+            "icon": "status"
+          }
+        },
+        {
+          "title": "Rain Prediction ML Pipeline",
+          "figure": "rain",
+          "tags": "MLflow, DVC, AWS | Jul 2025 to Aug 2025",
+          "summary": "An end-to-end machine learning pipeline for rainfall forecasting, from ingestion and retraining to a live prediction app.",
+          "bullets": [
+            "Built a modular, configuration-driven ETL pipeline to ingest 10k+ weather records daily from the Open-Meteo API into a PostgreSQL RDS instance, ensuring 99.5% data availability for model retraining",
+            "Trained and evaluated multiple estimators, using DVC for data versioning and MLflow to track metrics, ultimately reducing prediction error by 10%+ compared to the baseline",
+            "Deployed a Streamlit app serving real-time rainfall predictions from the latest production model"
+          ],
+          "metrics": [
+            {
+              "value": "10K+",
+              "label": "weather records ingested daily"
+            },
+            {
+              "value": "99.5%",
+              "label": "data availability for retraining"
+            },
+            {
+              "value": "10%+",
+              "label": "error reduction vs baseline"
+            }
+          ],
+          "action": {
+            "href": "rain-prediction-demo.html",
+            "label": "View Demo",
+            "icon": "status"
+          }
+        }
+      ]
+    },
+    "skills": {
+      "label": "TECHNICAL SKILLS",
+      "summary": "A balanced stack: machine learning, data tooling, application engineering, and the mathematical foundation behind them.",
+      "categories": [
+        {
+          "icon": "languages",
+          "title": "Languages",
+          "tags": [
+            "Python",
+            "C++",
+            "JavaScript",
+            "TypeScript",
+            "SQL",
+            "Java"
+          ]
+        },
+        {
+          "icon": "ml",
+          "title": "ML/AI & Data",
+          "tags": [
+            "PyTorch",
+            "TensorFlow",
+            "scikit-learn",
+            "Pandas",
+            "NumPy",
+            "MLflow",
+            "DVC"
+          ]
+        },
+        {
+          "icon": "frameworks",
+          "title": "Frameworks & Libraries",
+          "tags": [
+            "Node.js",
+            "Electron",
+            "Streamlit",
+            "Gradio"
+          ]
+        },
+        {
+          "icon": "tools",
+          "title": "Tools & Technologies",
+          "tags": [
+            "Git",
+            "Docker",
+            "AWS",
+            "PostgreSQL",
+            "Linux"
+          ]
+        },
+        {
+          "icon": "core",
+          "title": "Core Competencies",
+          "tags": [
+            "Algorithms",
+            "Data Structures",
+            "Computer Vision",
+            "NLP"
+          ]
+        },
+        {
+          "icon": "math",
+          "title": "Mathematics & Research",
+          "tags": [
+            "Linear Algebra",
+            "Calculus",
+            "Probability",
+            "Statistics",
+            "Computational Geometry",
+            "Optimization"
+          ]
+        }
+      ]
+    },
+    "contact": {
+      "titleHtml": "Get in touch",
+      "utilityTitle": "Prefer asking first?",
+      "utilityDescription": "Open the portfolio assistant for a recruiter-style overview, then jump into projects or reach out directly.",
+      "utilityButtonLabel": "Open Ask ArmandoGPT",
+      "description": "I'm looking for software engineering and machine learning roles where I can work on real technical problems and keep growing. LinkedIn is the easiest way to reach me.",
+      "copyLabel": "Copy email",
+      "links": [
+        {
+          "label": "LinkedIn",
+          "href": "https://www.linkedin.com/in/armando-albornoz-2a7493285",
+          "icon": "linkedin"
+        },
+        {
+          "label": "GitHub",
+          "href": "https://github.com/armandoalbornoz",
+          "icon": "github"
+        }
+      ]
+    },
+    "modal": {
+      "title": "Coming Soon!",
+      "description": "I'm still packaging this project into a cleaner public case study. Reach out if you want more detail in the meantime.",
+      "buttonLabel": "Get in Touch"
+    },
+    "footer": {
+      "text": "Armando Albornoz © 2025"
+    }
+  },
+  "rain": {
+    "title": "Rain Prediction ML Pipeline - Demo",
+    "backLabel": "Back to Portfolio",
+    "header": {
+      "title": "Rain Prediction ML Pipeline",
+      "subtitle": "End-to-end machine learning solution for accurate rainfall forecasting",
+      "techTags": [
+        "MLflow",
+        "DVC",
+        "Streamlit",
+        "PostgreSQL",
+        "Python",
+        "scikit-learn"
+      ]
+    },
+    "infoSections": [
+      {
+        "title": "Project Overview",
+        "text": "A production-ready ML pipeline that predicts rainfall using historical weather data from the Open-Meteo API. The system demonstrates modern MLOps practices with automated data versioning, experiment tracking, and model deployment."
+      },
+      {
+        "title": "Key Features",
+        "items": [
+          "Modular, configuration-driven architecture for easy maintenance",
+          "ETL pipeline with PostgreSQL RDS for scalable data storage",
+          "Multiple model training with hyperparameter optimization",
+          "DVC for data and model versioning",
+          "MLflow for experiment tracking and model registry",
+          "Real-time predictions via Streamlit interface"
+        ]
+      },
+      {
+        "title": "Technical Highlights",
+        "items": [
+          "Clean code architecture with separation of concerns",
+          "Automated data pipeline from API to database",
+          "Model comparison across multiple estimators",
+          "Cloud deployment on Streamlit Community Cloud",
+          "Version control for datasets and models"
+        ]
+      }
+    ],
+    "metrics": {
+      "title": "Performance Metrics",
+      "items": [
+        {
+          "value": "3+",
+          "label": "Models Trained"
+        },
+        {
+          "value": "10K+",
+          "label": "Data Points"
+        },
+        {
+          "value": "100%",
+          "label": "Automated"
+        },
+        {
+          "value": "24/7",
+          "label": "Available"
+        }
+      ]
+    },
+    "demo": {
+      "title": "Interactive Demo",
+      "description": "Try the live rainfall prediction model below. Enter location and weather parameters to get real-time predictions based on historical data patterns.",
+      "externalLabel": "Open in New Tab",
+      "externalUrl": "https://rainendtoend.streamlit.app/",
+      "fallbackTitle": "Direct Access Required",
+      "fallbackText": "The interactive demo works best when opened in a new tab. Click the button below to access the full Streamlit application.",
+      "fallbackButtonLabel": "Open Demo",
+      "iframeUrl": "https://rainendtoend.streamlit.app/?embedded=true",
+      "iframeTitle": "Rain Prediction Demo"
+    }
+  },
+  "delaunay": {
+    "title": "Order-K Delaunay Triangulation Research",
+    "backLabel": "Back to Portfolio",
+    "header": {
+      "title": "Order-K Delaunay Triangulation",
+      "authors": "Research by Adnan Farid, Edward Guthrie, Armando Albornoz",
+      "subtitle": "Exploring Angle Optimization in Higher-Order Delaunay Triangulations",
+      "techTags": [
+        "Computational Geometry",
+        "Convex Hull Algorithms",
+        "Mesh Refinement"
+      ]
+    },
+    "interactiveDemo": {
+      "title": "Interactive Demo",
+      "paragraphs": [
+        "Explore Delaunay triangulation by clicking on the canvas to add points, or use the controls below to generate examples.",
+        "This visualization demonstrates the foundation of our research on higher-order Delaunay triangulations."
+      ]
+    },
+    "research": {
+      "title": "Our Research on Order-K Delaunay Triangulations",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Delaunay triangulations are fundamental geometric structures used extensively in computational geometry, computer graphics, and mesh generation. Their popularity stems from optimal angular properties: standard Delaunay triangulations maximize the minimum angle among all possible triangulations, helping create well-shaped triangles."
+        },
+        {
+          "type": "highlight",
+          "title": "Research Question:",
+          "text": "How can refinement optimize angles in Order-2 Delaunay triangulations? While refinement is well-studied for standard (order-1) Delaunay triangulations, its role in higher-order triangulations remains largely unexplored."
+        },
+        {
+          "type": "subtitle",
+          "text": "What are Order-K Delaunay Triangulations?"
+        },
+        {
+          "type": "paragraph",
+          "text": "While standard Delaunay triangulations (order-1) use single points as vertices, order-k Delaunay triangulations use k-tuples of points. For order-2, each vertex represents the average (barycenter) of two points from the original set. This creates a more complex structure with interesting angle optimization properties."
+        },
+        {
+          "type": "subtitle",
+          "text": "The Convex Hull Lifting Algorithm"
+        },
+        {
+          "type": "paragraph",
+          "text": "A key algorithmic contribution of our work is the development of an incremental construction method using the convex hull lifting technique. This approach provides an elegant geometric interpretation of order-k Delaunay triangulations."
+        },
+        {
+          "type": "algorithm",
+          "title": "Algorithm Overview",
+          "intro": "The algorithm leverages the classical duality between Delaunay triangulations and convex hulls in higher dimensions. For order-2 triangulations, we lift points to 3D space and compute barycenters, then project the lower hull back to the plane.",
+          "steps": [
+            {
+              "label": "Lift Points:",
+              "text": "Project each point (x, y) to 3D using the paraboloid z = x^2 + y^2"
+            },
+            {
+              "label": "Compute Barycenters:",
+              "text": "For all pairs of lifted points, calculate their average (barycenter)"
+            },
+            {
+              "label": "Convex Hull:",
+              "text": "Compute the 3D convex hull of these barycenter points"
+            },
+            {
+              "label": "Lower Hull Projection:",
+              "text": "Identify facets with downward-facing normals and project them back to 2D"
+            },
+            {
+              "label": "Triangulation:",
+              "text": "The projected lower hull faces form the order-2 Delaunay triangulation"
+            }
+          ],
+          "challengeTitle": "Key Challenge:",
+          "challengeText": "Computing all O(n^2) barycenters becomes computationally expensive for large point sets. Our research explored optimizations using the rhomboid tiling structure to identify only the relevant barycenters that contribute to the lower hull, avoiding unnecessary computation."
+        },
+        {
+          "type": "findings",
+          "title": "Key Findings",
+          "items": [
+            {
+              "number": "01",
+              "title": "Angle Optimization",
+              "text": "Order-2 Delaunay triangulations extend the local angle property from order-1, lexicographically maximizing the sorted angle vector among all complete level-2 hypertriangulations."
+            },
+            {
+              "number": "02",
+              "title": "Refinement Techniques",
+              "text": "We explored Ruppert's algorithm and mesh smoothing for refinement. While both improve angle histograms, order-2 triangulations converge slower than order-1, with blue triangles replicating order-1 structure and red triangles introducing new angles."
+            },
+            {
+              "number": "03",
+              "title": "Algorithmic Efficiency",
+              "text": "The rhomboid tiling algorithm significantly outperforms naive barycenter computation. By leveraging the combinatorial structure of hyperplane arrangements, we identify relevant vertices without examining all possible pairs."
+            }
+          ]
+        },
+        {
+          "type": "subtitle",
+          "text": "Experimental Results"
+        },
+        {
+          "type": "paragraph",
+          "text": "Through extensive experimentation with various point distributions (Gaussian, explosion, convex), we found that:"
+        },
+        {
+          "type": "bullets",
+          "items": [
+            "Order-2 triangulations show improvement but retain more small angles than order-1",
+            "Blue triangles in order-2 replicate order-1 structure, while red triangles introduce new angles",
+            "The rhomboid tiling algorithm outperforms our initial incremental approach",
+            "Mesh smoothing provides modest improvements but does not eliminate all problematic angles"
+          ]
+        },
+        {
+          "type": "subtitle",
+          "text": "Future Directions"
+        },
+        {
+          "type": "paragraph",
+          "text": "Our research opens several avenues for future study:"
+        },
+        {
+          "type": "cards",
+          "items": [
+            {
+              "title": "Improved Incremental Algorithms",
+              "text": "Developing more efficient incremental construction by identifying relevant barycenters without computing all combinations, possibly using predicted structures from the order-1 triangulation."
+            },
+            {
+              "title": "Enhanced Refinement",
+              "text": "Investigating refinement strategies specifically designed for order-2 triangulations to better eliminate problematic angles, particularly those introduced by red triangles."
+            },
+            {
+              "title": "Complexity Analysis",
+              "text": "Further study of the size and complexity of order-k Delaunay triangulations for k > 2, and whether similar optimization properties hold for higher orders."
+            }
+          ]
+        },
+        {
+          "type": "highlight",
+          "title": "Impact:",
+          "text": "This research contributes to our understanding of higher-order Delaunay triangulations and their potential applications in mesh generation, where avoiding poorly-shaped triangles is crucial for numerical stability and accuracy in finite element methods and computational simulations.",
+          "variant": "impact"
+        }
+      ]
+    },
+    "pdf": {
+      "title": "Milestone III Report (Full PDF)",
+      "description": "This is the full milestone writeup, including background, literature review, algorithmic approach, refinement experiments, and results. You can read it inline or open it separately.",
+      "buttonLabel": "Open PDF in New Tab",
+      "path": "./docs/delaunay-milestone.pdf"
+    }
+  },
+  "learningStudies": {
+    "title": "Machine Learning Evaluation & Optimization Study",
+    "backLabel": "Back to Portfolio",
+    "header": {
+      "title": "Machine Learning Evaluation & Optimization Study",
+      "subtitle": "An ongoing Georgia Tech machine learning project centered on reproducible evaluation, optimizer ablations, and understanding what actually improves model performance.",
+      "techTags": [
+        "Python",
+        "scikit-learn",
+        "PyTorch",
+        "Optimization",
+        "Experiment Design",
+        "Model Evaluation"
+      ]
+    },
+    "status": {
+      "label": "Current state",
+      "text": "This page is still in progress. The supervised learning and optimization sections are done, and the unsupervised learning and reinforcement learning sections will be added next."
+    },
+    "overview": {
+      "eyebrow": "Case Study",
+      "title": "Evaluation first, optimization second",
+      "paragraphs": [
+        "This page combines the two completed parts of the project so far: a supervised-learning benchmark and a follow-up optimization study built around Adult income classification and Wine quality prediction.",
+        "The part I like most is that it is not just about getting one good score. A lot of the real work was building a reproducible evaluation pipeline, choosing metrics that fit the datasets, and then testing which optimization changes actually mattered."
+      ],
+      "metrics": [
+        {
+          "value": "48,719",
+          "label": "total records benchmarked"
+        },
+        {
+          "value": "0.7808",
+          "label": "best PR-AUC"
+        },
+        {
+          "value": "45%",
+          "label": "time-to-target reduction"
+        },
+        {
+          "value": "66%",
+          "label": "steps-to-target reduction"
+        }
+      ]
+    },
+    "reportSections": [
+      {
+        "eyebrow": "Completed Section 01",
+        "title": "Supervised learning benchmark",
+        "summary": "I built a reproducible benchmarking pipeline across two classification problems with 48,719 total records, using preprocessing, stratified splits, and cross-validation to compare tree-based, kernel-based, and neural models.",
+        "highlights": [
+          "Used stratified 80/20 train-test splits, 3-fold cross-validation, one-hot encoding for Adult, and feature scaling where appropriate",
+          "Evaluated Adult with accuracy, F1, and PR-AUC because the target is imbalanced and threshold choice matters",
+          "Evaluated Wine with Macro-F1 to reflect multiclass imbalance instead of relying on raw accuracy"
+        ],
+        "resultCards": [
+          {
+            "title": "Adult result",
+            "text": "On Adult, the tuned MLP did best by PR-AUC at 0.7808, with linear SVM not far behind at 0.7657. That suggested the one-hot encoded feature space was close to linear, but still complex enough for the MLP to help."
+          },
+          {
+            "title": "Wine result",
+            "text": "On Wine, tuned kNN came out on top by Macro-F1 at 0.4654, ahead of CART and RBF SVM. That matched the idea that a smaller, denser feature space would work well with distance-based methods."
+          },
+          {
+            "title": "Main takeaway",
+            "text": "The biggest takeaway was that the dataset changed what mattered. Adult leaned toward linear-style models and PR-AUC, while Wine made more sense with distance-based methods and Macro-F1."
+          }
+        ],
+        "primaryReport": {
+          "label": "Open full report",
+          "path": "./docs/SL/SL_Report_aalbornoz6-1.pdf"
+        },
+        "secondaryReport": {
+          "label": "Open FAQ appendix",
+          "path": "./docs/SL/SL_Report_Spring_2026_FAQ_v1.pdf"
+        },
+        "embedPath": "./docs/SL/SL_Report_aalbornoz6-1.pdf"
+      },
+      {
+        "eyebrow": "Completed Section 02",
+        "title": "Optimization and regularization study",
+        "summary": "I reused the strongest MLP from the supervised benchmark and ran optimizer and regularization ablations that cut time-to-target by 45% and steps-to-target by 66% while improving multiclass Macro-F1 to 0.3458.",
+        "highlights": [
+          "Compared Randomized Hill Climbing, Simulated Annealing, and Genetic Algorithms by freezing most of the network and optimizing only the final layer",
+          "Ran optimizer ablations on the full Adult MLP across SGD, momentum, Nesterov, Adam, AdamW, and Adam without bias correction",
+          "Swept weight decay, early stopping, dropout, and noise-based regularization to test which knobs actually change validation behavior"
+        ],
+        "resultCards": [
+          {
+            "title": "Randomized optimization",
+            "text": "Randomized Hill Climbing ended up working best out of the randomized methods, which was not what I expected going in."
+          },
+          {
+            "title": "Optimizer behavior",
+            "text": "Momentum clearly helped compared to plain SGD, and the Adam-style optimizers converged well once tuned. But none of them actually beat the earlier supervised-learning baseline on F1, which was a useful result on its own."
+          },
+          {
+            "title": "Regularization",
+            "text": "Weight decay was the only regularizer that consistently helped. The best fixed setup got the validation loss down to about 0.3125, while dropout and noise-based regularization did not do much."
+          }
+        ],
+        "primaryReport": {
+          "label": "Open full report",
+          "path": "./docs/OL/OL_Report_aalbornoz6.pdf"
+        },
+        "secondaryReport": {
+          "label": "Open FAQ appendix",
+          "path": "./docs/OL/OL_Report_Spring_2026_FAQ_v1.pdf"
+        },
+        "embedPath": "./docs/OL/OL_Report_aalbornoz6.pdf"
+      }
+    ],
+    "takeaways": {
+      "title": "What I think was useful here",
+      "items": [
+        {
+          "title": "The setup mattered as much as the models",
+          "text": "A lot of the value came from getting the evaluation right: avoiding leakage, choosing the right metrics, and running controlled comparisons instead of just chasing one score."
+        },
+        {
+          "title": "A better optimizer does not automatically mean a better model",
+          "text": "The optimization section was helpful partly because many changes improved convergence without clearly improving the final model. That distinction matters."
+        },
+        {
+          "title": "Different datasets rewarded different choices",
+          "text": "Adult and Wine behaved differently, and the project made that pretty clear. The feature representation and class imbalance affected which models ended up working best."
+        }
+      ]
+    },
+    "roadmap": {
+      "title": "What is still ahead",
+      "items": [
+        {
+          "index": "01",
+          "badge": "Complete",
+          "state": "complete",
+          "title": "Supervised learning",
+          "text": "Completed model benchmarking and metric-driven analysis across Adult and Wine."
+        },
+        {
+          "index": "02",
+          "badge": "Complete",
+          "state": "complete",
+          "title": "Optimization",
+          "text": "Completed optimizer and regularization ablations using the strongest MLP baseline."
+        },
+        {
+          "index": "03",
+          "badge": "Upcoming",
+          "state": "upcoming",
+          "title": "Unsupervised learning",
+          "text": "Still to be added once that section of the course work is complete and the corresponding artifacts are ready to publish."
+        },
+        {
+          "index": "04",
+          "badge": "Upcoming",
+          "state": "upcoming",
+          "title": "Reinforcement learning",
+          "text": "Planned as the final section in the sequence, to be documented here when the report and supporting material are finalized."
+        }
+      ]
+    }
+  }
+}

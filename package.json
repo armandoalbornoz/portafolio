@@ -1,8 +1,8 @@
 {
     "name": "portafolio_website",
+    "private": true,
     "version": "1.0.0",
-    "description": "Modularised version of the three standalone HTML experiences (`portfolio.html`, `delaunay-research-final-with-pdf.html`, `rain-prediction-demo.html`). All shared styles and behaviours now live in a central `assets` directory so each page only contains semantic markup.",
-    "main": "index.js",
+    "description": "Multi-page Vite portfolio site with three HTML entry points and shared CSS/JS under assets.",
     "keywords": [],
     "author": "",
     "license": "ISC",
@@ -19,12 +19,13 @@
         "vite": "^7.1.12"
     },
     "scripts": {
-        "preview": "vite preview",
-        "build": "vite build",
-        "lint": "eslint \"assets/**/*.{js,ts}\"",
+        "sync:static": "node scripts/sync-static.mjs",
+        "preview": "node node_modules/vite/bin/vite.js preview",
+        "build": "node scripts/sync-static.mjs && node node_modules/vite/bin/vite.js build",
+        "lint": "node node_modules/eslint/bin/eslint.js \"assets/**/*.{js,ts}\"",
         "format": "prettier --write \"**/*.{js,css,html,json,md}\"",
-        "lint:fix": "eslint \"assets/**/*.{js,ts}\" --fix",
-        "dev": "vite"
+        "lint:fix": "node node_modules/eslint/bin/eslint.js \"assets/**/*.{js,ts}\" --fix",
+        "dev": "node scripts/sync-static.mjs && node node_modules/vite/bin/vite.js"
     },
     "dependencies": {
         "d3": "^7.9.0",

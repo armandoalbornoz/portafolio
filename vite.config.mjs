@@ -10,7 +10,8 @@ export default defineConfig({
       input: {
         index: 'index.html',
         delaunay: 'delaunay-research-final-with-pdf.html',
-        rain: 'rain-prediction-demo.html'
+        rain: 'rain-prediction-demo.html',
+        learningStudies: 'ml-learning-studies.html'
       }
     },
     outDir: 'dist',

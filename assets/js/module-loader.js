@@ -17,13 +17,13 @@ export async function loadWithFallback(specifier, fallbackUrl) {
             cacheKey,
             (async () => {
                 try {
-                    return await import(specifier);
+                    return await import(/* @vite-ignore */ specifier);
                 } catch (error) {
                     if (!fallbackUrl) {
                         throw error;
                     }
                     console.warn(`Falling back to CDN for ${specifier}`, error);
-                    return import(fallbackUrl);
+                    return import(/* @vite-ignore */ fallbackUrl);
                 }
             })()
         );
