@@ -1,5 +1,10 @@
 const moduleCache = new Map();
 
+function canResolveBareSpecifiers() {
+    return typeof import.meta !== 'undefined'
+        && typeof import.meta.env !== 'undefined';
+}
+
 /**
  * Dynamically imports an ES module and falls back to a CDN URL when the bare
  * specifier cannot be resolved in the current environment (e.g., GitHub Pages).
@@ -16,6 +21,14 @@ export async function loadWithFallback(specifier, fallbackUrl) {
         moduleCache.set(
             cacheKey,
             (async () => {
+                if (!canResolveBareSpecifiers()) {
+                    if (!fallbackUrl) {
+                        throw new TypeError(`Cannot resolve bare specifier "${specifier}" without a fallback URL.`);
+                    }
+
+                    return import(/* @vite-ignore */ fallbackUrl);
+                }
+
                 try {
                     return await import(/* @vite-ignore */ specifier);
                 } catch (error) {
