@@ -1,0 +1,12 @@
+* text=auto eol=lf
+*.glb binary
+*.hdr binary
+*.pdf binary
+*.woff2 binary
+*.png binary
+*.jpg binary
+*.webp binary
+
+# Preserve third-party sources and license text verbatim.
+vendor/** -whitespace
+assets/fonts/OFL.txt -whitespace

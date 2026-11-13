@@ -1,48 +1,36 @@
-# Portfolio Website
+# Armando Albornoz — portfolio
 
-Multi-page Vite portfolio site with three root HTML entry points and shared CSS/JS in `assets/`.
+The current website source lives at `~/portafolio_website` in WSL.
+It uses an interactive Three.js terminal and five project pages. Each visit waits
+for the visitor to press power or a key. The original synthesized soundtrack starts
+after power-on; mute is remembered. All runtime libraries, fonts, models and reports
+are served locally, with their required licenses.
 
-## Structure
+## Develop and build
 
-- `index.html` - main landing page / portfolio entry.
-- `delaunay-research-final-with-pdf.html` - interactive research page.
-- `rain-prediction-demo.html` - machine learning demo page.
-- `assets/css/base.css` – global reset, color variables, shared cursor styling.
-- `assets/css/portfolio.css` – layout and effects for the main portfolio page.
-- `assets/css/delaunay.css` – research page styling, including glassmorphism panels.
-- `assets/css/rain.css` – ML demo styling and background effects.
-- `assets/js/base.js` – shared cursor behaviour.
-- `assets/js/portfolio.js` – Three.js hero scene, scroll animations, modal logic.
-- `assets/js/delaunay.js` – Three.js starfield plus interactive D3 triangulation controls.
-- `assets/js/rain.js` – Animated rain scene and iframe loading fallbacks.
-- `docs/` - source PDFs used by the HTML pages when opened directly.
-- `public/docs/` - deploy copies synced from `docs/` before dev/build.
+Run `npm run dev` and open http://localhost:5173/.
+Run `npm run check` to check source syntax and publishing assets.
+Run `npm run build` to create `dist/`, then `npm run preview` to inspect the build.
+Stop the development server before using the preview server on the same port.
+Node.js 20+ and Python 3 are sufficient; no package installation is required.
 
-## Usage
+`site-files.json` lists the files included in the build. Add any new runtime assets
+to that list. Local design notes, development previews and unused original assets
+stay out of `dist/`. Edit the root JavaScript/CSS/HTML files and `assets/` here;
+the Windows workspace is the previous working copy.
 
-Install dependencies, then use Vite for local development and production builds.
+## Deployment
 
-```bash
-npm install
-npm run dev
-```
+The origin remote is https://github.com/armandoalbornoz/portafolio.git.
+The existing GitHub Pages workflow deploys `dist/` when changes reach `main`.
+It reads the site's public URL from GitHub Pages to populate sharing metadata.
+For a manual build, optionally set `SITE_URL=https://your-domain.example/ npm run build`.
+Project routes use URL fragments and work under a GitHub Pages subdirectory.
 
-Additional scripts:
+The migrated version is on the local `terminal-portfolio` branch (or a timestamped
+variant if that name already existed). No changes were pushed during migration.
+The old website files and original commit/branch details were preserved outside
+the repository under `~/portfolio-backups/`. Git history and the origin remote remain intact.
 
-- `npm run build` - syncs `docs/` into `public/docs/` and builds `dist/`.
-- `npm run preview` - serves the production build locally.
-- `npm run lint` - runs ESLint on the shared JavaScript assets.
-
-## Editing Content
-
-- Update portfolio copy, links, project text, and page text in `assets/content/site-content.json`.
-- Replace files like the resume or PDFs in `docs/`.
-- Run `npm run dev` for local preview or `npm run build` to regenerate the production output.
-
-This setup is private and repo-controlled: there is no public admin panel or in-browser editor.
-
-## Extending
-
-- Add new shared styles to `assets/css/base.css` or create a dedicated page stylesheet under `assets/css`.
-- Shared behaviours belong in `assets/js/base.js`; keep page-specific logic isolated in matching page scripts.
-- Avoid inline event handlers—use `data-` attributes and bind listeners in the relevant script.
+Before announcing the deployed site, check power-on, sound/mute, a project, a report
+and Contact on a physical phone. No site is public merely because it was built locally.

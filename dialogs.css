@@ -1,0 +1,32 @@
+/* Application windows share the computer's graphite frame and amber controls. */
+.terminal-dialog{--window-ink:#e9ecda;--window-muted:#b7c5b5;--window-action:#dfcb91;width:min(620px,calc(100vw - 32px));max-height:calc(100dvh - 36px);padding:7px;border:1px solid #6a7567;border-radius:9px;background:#343c34;color:var(--window-ink);color-scheme:dark;box-shadow:0 28px 70px #0009;overflow:auto;scrollbar-color:#839578 #101a14}
+.terminal-dialog::backdrop{background:#020805b8}
+.dialog-bar{display:flex;align-items:center;justify-content:space-between;gap:20px;min-height:54px;padding:6px 7px 6px 18px;background:#b5bca8;color:#202d22;border:1px solid #d0d5c1;border-radius:3px 3px 0 0}
+.dialog-owner{font:12px/1.5 var(--mono-font);letter-spacing:-.01em}
+.terminal-dialog .dialog-close{display:inline-flex;align-items:center;justify-content:center;gap:12px;float:none;min-width:94px;min-height:44px;width:auto;height:auto;margin:0;padding:10px 12px;border:1px solid #52634e;border-radius:3px;background:#2c3b2d;color:#f1edda;font:var(--control-size)/1.5 var(--body-font);transition:background 140ms ease,border-color 140ms ease}
+.terminal-dialog .dialog-close svg{width:16px;height:16px;stroke-width:1.7}
+.terminal-dialog .dialog-close:hover{background:#1b2c20;color:#fff8e5!important;border-color:#1b2c20}
+.terminal-dialog .dialog-close:active{transform:translateY(1px)}
+.dialog-body{padding:32px 30px 30px;background:#0d1812;border:1px solid #4c5a49;border-top:0;border-radius:0 0 3px 3px}
+.terminal-dialog h2{font:500 42px/1.12 var(--body-font);letter-spacing:-.035em;margin:0 0 28px;color:#eee7c9}
+.terminal-dialog p{font:16px/1.85 var(--body-font);color:var(--window-ink);margin:0 0 21px;max-width:52ch;overflow-wrap:anywhere}
+.terminal-dialog a{color:#d9e5bf;text-decoration-thickness:1px;text-underline-offset:4px}
+.terminal-dialog a:hover{color:#fff0bc}
+.terminal-dialog a:focus-visible,.terminal-dialog button:focus-visible{outline:2px solid #f3df9d;outline-offset:4px}
+.terminal-dialog .dialog-close:focus-visible{outline-color:#263e28;outline-offset:3px}
+.dialog-email{display:grid;grid-template-columns:26px minmax(0,1fr) 20px;align-items:center;gap:16px;padding:21px 20px;min-height:100px;border:1px solid #e7dbaa;border-radius:3px;background:#dfcb91;color:#182b1c!important;text-decoration:none;transition:background 140ms ease}
+.dialog-email:hover{background:#ecdcac}
+.dialog-email>svg{width:26px;height:26px;stroke-width:1.5}.dialog-email>svg:last-child{width:20px;height:20px}
+.method-label{display:block;font:13px/1.5 var(--mono-font);color:#304733;margin-bottom:6px}
+.method-value{display:block;font:500 17px/1.6 var(--body-font);letter-spacing:-.01em;overflow-wrap:anywhere}
+.dialog-socials{display:flex;gap:12px;margin-top:16px}
+.terminal-dialog .dialog-socials a{display:flex;align-items:center;justify-content:space-between;gap:16px;flex:1;min-width:0;min-height:54px;padding:14px 16px;border:1px solid #6a805c;border-radius:3px;background:#17271b;color:#dae7c9;text-decoration:none;font:15px/1.5 var(--body-font);transition:background 140ms ease,border-color 140ms ease}
+.terminal-dialog .dialog-socials a:hover{background:#263b26;border-color:#8eaa7b;color:#fff0bc}.dialog-socials svg,.credit-links svg{width:18px;height:18px;flex:none;stroke-width:1.5}
+#about-dialog .about-actions{display:flex;align-items:center;justify-content:flex-start;border-top:1px solid #3d5138;padding-top:17px;margin-top:24px}
+#about-dialog #credits{display:inline-flex;align-items:center;gap:14px;min-height:44px;padding:0;margin:0;color:#bfcea9;font:14px/1.6 var(--body-font);text-decoration:none}
+#about-dialog #credits:hover{color:#fff0bc!important}#credits>svg{width:16px;height:16px}
+.credit-resource{padding-bottom:23px;margin-bottom:24px;border-bottom:1px solid #3d5138}.credit-resource h3{font:500 22px/1.3 var(--body-font);letter-spacing:-.02em;color:#e7e7ce;margin:0 0 9px}.credit-resource p{font-size:15px;margin-bottom:12px}
+.credit-links{display:flex;gap:12px 24px;flex-wrap:wrap}.credit-links a{display:inline-flex;align-items:center;gap:12px;min-height:44px;font:14px/1.5 var(--body-font)}
+.terminal-dialog .credit-note{font-size:13px;line-height:1.8;color:var(--window-muted);margin:0}
+@media(max-width:560px){.terminal-dialog{padding:5px;width:calc(100vw - 24px);max-height:calc(100dvh - 24px);border-radius:7px}.dialog-bar{gap:10px;padding:5px 6px 5px 12px}.dialog-owner{font-size:11px}.terminal-dialog .dialog-close{min-width:82px;gap:8px;font-size:14px}.dialog-body{padding:26px 20px 22px}.terminal-dialog h2{font-size:35px;margin-bottom:24px}.terminal-dialog p{font-size:16px;line-height:1.8}.dialog-email{gap:12px;padding:18px 14px;grid-template-columns:23px minmax(0,1fr) 16px}.dialog-email>svg{width:23px;height:23px}.dialog-email>svg:last-child{width:16px;height:16px}.method-value{font-size:16px}.terminal-dialog .dialog-socials a{padding:12px;gap:10px;font-size:16px}.credit-links{gap:8px 22px}}
+@media(prefers-reduced-motion:reduce){.terminal-dialog .dialog-close,.terminal-dialog a{transition:none}}

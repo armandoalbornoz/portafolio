@@ -1,0 +1,22 @@
+<!doctype html><html lang="en"><meta charset="utf-8"><title>Terminal music preview</title>
+<style>body{max-width:650px;margin:70px auto;padding:24px;background:#101b17;color:#eee9dd;font:18px/1.6 system-ui}button,a{color:#eee9dd;background:#304d3a;padding:14px;border:1px solid #8da584;font:inherit}audio{display:block;margin:24px 0;width:100%}</style>
+<h1>Terminal music preview</h1><p>Original eight-bar retro theme, with melody, bass, chords, and percussion.</p><button id="render">Prepare music preview</button><p id="result" role="status">Ready to prepare.</p><audio id="preview" controls></audio><a id="download" hidden download="terminal-music-preview-v47.wav">Download music preview</a>
+<script type="module">
+import {createPortfolioSound} from './sound.js?v=20261113-47';
+document.querySelector('#render').onclick=async()=>{
+ const status=document.querySelector('#result');status.textContent='Rendering…';
+ const offline=new OfflineAudioContext(2,48000*21,48000);let clock=0,pending;
+ const wrapper={sampleRate:offline.sampleRate,get currentTime(){return clock;},state:'running',destination:offline.destination};
+ for(const method of ['createGain','createOscillator','createBufferSource','createBiquadFilter','createDynamicsCompressor','createBuffer','createStereoPanner'])wrapper[method]=offline[method].bind(offline);
+ const sound=createPortfolioSound({storage:{getItem:()=> 'on'},contextFactory:()=>wrapper,setTimer:(callback,ms)=>{pending={callback,due:clock+ms/1000};return 1;},clearTimer:()=>{pending=null;}});
+ sound.unlock();await Promise.resolve();sound.play('powerOn');clock=.6;sound.setScene('menu');
+ for(;clock<19.7;clock+=.02){if(pending&&clock>=pending.due){const callback=pending.callback;pending=null;callback();}}
+ const buffer=await offline.startRendering(),left=buffer.getChannelData(0),right=buffer.getChannelData(1);let peak=0,energy=0;
+ for(let i=0;i<left.length;i++)for(const value of [left[i],right[i]]){if(!Number.isFinite(value))throw Error('Non-finite sample');peak=Math.max(peak,Math.abs(value));energy+=value*value;}
+ const data=new ArrayBuffer(44+left.length*4),view=new DataView(data),word=(offset,text)=>[...text].forEach((char,i)=>view.setUint8(offset+i,char.charCodeAt(0)));
+ word(0,'RIFF');view.setUint32(4,data.byteLength-8,true);word(8,'WAVE');word(12,'fmt ');view.setUint32(16,16,true);view.setUint16(20,1,true);view.setUint16(22,2,true);view.setUint32(24,48000,true);view.setUint32(28,192000,true);view.setUint16(32,4,true);view.setUint16(34,16,true);word(36,'data');view.setUint32(40,left.length*4,true);
+ for(let i=0;i<left.length;i++){view.setInt16(44+i*4,Math.max(-1,Math.min(1,left[i]))*32767,true);view.setInt16(46+i*4,Math.max(-1,Math.min(1,right[i]))*32767,true);}
+ const url=URL.createObjectURL(new Blob([data],{type:'audio/wav'}));document.querySelector('#preview').src=url;const link=document.querySelector('#download');link.href=url;link.hidden=false;
+ status.textContent=`21-second music preview ready. Peak ${peak.toFixed(3)}, RMS ${Math.sqrt(energy/(left.length*2)).toFixed(4)}. ${peak<.9?'No clipping.':'Check level.'}`;
+};
+</script></html>

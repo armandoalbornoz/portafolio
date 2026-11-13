@@ -1,0 +1,391 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-11-13T04:53:57.228836+00:00",
+  "title": "Design System: Armando Albornoz — Personal terminal",
+  "extensions": {
+    "colorMeta": {
+      "paper": {
+        "role": "neutral",
+        "displayName": "Paper",
+        "tonalRamp": [
+          "oklch(15.00% 0.01688 88.00)",
+          "oklch(26.43% 0.01688 88.00)",
+          "oklch(37.86% 0.01688 88.00)",
+          "oklch(49.29% 0.01688 88.00)",
+          "oklch(60.71% 0.01688 88.00)",
+          "oklch(72.14% 0.01688 88.00)",
+          "oklch(83.57% 0.01688 88.00)",
+          "oklch(95.00% 0.01688 88.00)"
+        ]
+      },
+      "paper-ink": {
+        "role": "neutral",
+        "displayName": "Paper Ink",
+        "tonalRamp": [
+          "oklch(15.00% 0.02946 173.84)",
+          "oklch(26.43% 0.02946 173.84)",
+          "oklch(37.86% 0.02946 173.84)",
+          "oklch(49.29% 0.02946 173.84)",
+          "oklch(60.71% 0.02946 173.84)",
+          "oklch(72.14% 0.02946 173.84)",
+          "oklch(83.57% 0.02946 173.84)",
+          "oklch(95.00% 0.02946 173.84)"
+        ]
+      },
+      "paper-secondary": {
+        "role": "neutral",
+        "displayName": "Paper Secondary",
+        "tonalRamp": [
+          "oklch(15.00% 0.02244 157.25)",
+          "oklch(26.43% 0.02244 157.25)",
+          "oklch(37.86% 0.02244 157.25)",
+          "oklch(49.29% 0.02244 157.25)",
+          "oklch(60.71% 0.02244 157.25)",
+          "oklch(72.14% 0.02244 157.25)",
+          "oklch(83.57% 0.02244 157.25)",
+          "oklch(95.00% 0.02244 157.25)"
+        ]
+      },
+      "paper-rule": {
+        "role": "neutral",
+        "displayName": "Paper Rule",
+        "tonalRamp": [
+          "oklch(15.00% 0.01861 124.03)",
+          "oklch(26.43% 0.01861 124.03)",
+          "oklch(37.86% 0.01861 124.03)",
+          "oklch(49.29% 0.01861 124.03)",
+          "oklch(60.71% 0.01861 124.03)",
+          "oklch(72.14% 0.01861 124.03)",
+          "oklch(83.57% 0.01861 124.03)",
+          "oklch(95.00% 0.01861 124.03)"
+        ]
+      },
+      "charcoal": {
+        "role": "neutral",
+        "displayName": "Charcoal",
+        "tonalRamp": [
+          "oklch(15.00% 0.00638 196.56)",
+          "oklch(26.43% 0.00638 196.56)",
+          "oklch(37.86% 0.00638 196.56)",
+          "oklch(49.29% 0.00638 196.56)",
+          "oklch(60.71% 0.00638 196.56)",
+          "oklch(72.14% 0.00638 196.56)",
+          "oklch(83.57% 0.00638 196.56)",
+          "oklch(95.00% 0.00638 196.56)"
+        ]
+      },
+      "phosphor": {
+        "role": "primary",
+        "displayName": "Phosphor",
+        "tonalRamp": [
+          "oklch(15.00% 0.10944 130.66)",
+          "oklch(26.43% 0.10944 130.66)",
+          "oklch(37.86% 0.10944 130.66)",
+          "oklch(49.29% 0.10944 130.66)",
+          "oklch(60.71% 0.10944 130.66)",
+          "oklch(72.14% 0.10944 130.66)",
+          "oklch(83.57% 0.10944 130.66)",
+          "oklch(95.00% 0.10944 130.66)"
+        ]
+      },
+      "terminal-ink": {
+        "role": "neutral",
+        "displayName": "Terminal Ink",
+        "tonalRamp": [
+          "oklch(15.00% 0.01656 121.78)",
+          "oklch(26.43% 0.01656 121.78)",
+          "oklch(37.86% 0.01656 121.78)",
+          "oklch(49.29% 0.01656 121.78)",
+          "oklch(60.71% 0.01656 121.78)",
+          "oklch(72.14% 0.01656 121.78)",
+          "oklch(83.57% 0.01656 121.78)",
+          "oklch(95.00% 0.01656 121.78)"
+        ]
+      },
+      "terminal-dim": {
+        "role": "neutral",
+        "displayName": "Terminal Dim",
+        "tonalRamp": [
+          "oklch(15.00% 0.02029 140.49)",
+          "oklch(26.43% 0.02029 140.49)",
+          "oklch(37.86% 0.02029 140.49)",
+          "oklch(49.29% 0.02029 140.49)",
+          "oklch(60.71% 0.02029 140.49)",
+          "oklch(72.14% 0.02029 140.49)",
+          "oklch(83.57% 0.02029 140.49)",
+          "oklch(95.00% 0.02029 140.49)"
+        ]
+      },
+      "figure-surface": {
+        "role": "neutral",
+        "displayName": "Figure Surface",
+        "tonalRamp": [
+          "oklch(15.00% 0.00000 89.88)",
+          "oklch(26.43% 0.00000 89.88)",
+          "oklch(37.86% 0.00000 89.88)",
+          "oklch(49.29% 0.00000 89.88)",
+          "oklch(60.71% 0.00000 89.88)",
+          "oklch(72.14% 0.00000 89.88)",
+          "oklch(83.57% 0.00000 89.88)",
+          "oklch(95.00% 0.00000 89.88)"
+        ]
+      },
+      "cover": {
+        "role": "neutral",
+        "displayName": "Cover",
+        "tonalRamp": [
+          "oklch(15.00% 0.02017 172.74)",
+          "oklch(26.43% 0.02017 172.74)",
+          "oklch(37.86% 0.02017 172.74)",
+          "oklch(49.29% 0.02017 172.74)",
+          "oklch(60.71% 0.02017 172.74)",
+          "oklch(72.14% 0.02017 172.74)",
+          "oklch(83.57% 0.02017 172.74)",
+          "oklch(95.00% 0.02017 172.74)"
+        ]
+      },
+      "cover-ink": {
+        "role": "neutral",
+        "displayName": "Cover Ink",
+        "tonalRamp": [
+          "oklch(15.00% 0.01647 91.55)",
+          "oklch(26.43% 0.01647 91.55)",
+          "oklch(37.86% 0.01647 91.55)",
+          "oklch(49.29% 0.01647 91.55)",
+          "oklch(60.71% 0.01647 91.55)",
+          "oklch(72.14% 0.01647 91.55)",
+          "oklch(83.57% 0.01647 91.55)",
+          "oklch(95.00% 0.01647 91.55)"
+        ]
+      },
+      "cover-secondary": {
+        "role": "neutral",
+        "displayName": "Cover Secondary",
+        "tonalRamp": [
+          "oklch(15.00% 0.02200 154.07)",
+          "oklch(26.43% 0.02200 154.07)",
+          "oklch(37.86% 0.02200 154.07)",
+          "oklch(49.29% 0.02200 154.07)",
+          "oklch(60.71% 0.02200 154.07)",
+          "oklch(72.14% 0.02200 154.07)",
+          "oklch(83.57% 0.02200 154.07)",
+          "oklch(95.00% 0.02200 154.07)"
+        ]
+      },
+      "accent": {
+        "role": "primary",
+        "displayName": "Accent",
+        "tonalRamp": [
+          "oklch(15.00% 0.09104 121.55)",
+          "oklch(26.43% 0.09104 121.55)",
+          "oklch(37.86% 0.09104 121.55)",
+          "oklch(49.29% 0.09104 121.55)",
+          "oklch(60.71% 0.09104 121.55)",
+          "oklch(72.14% 0.09104 121.55)",
+          "oklch(83.57% 0.09104 121.55)",
+          "oklch(95.00% 0.09104 121.55)"
+        ]
+      },
+      "window-shell": {
+        "role": "neutral",
+        "displayName": "Window Shell"
+      },
+      "window-rail": {
+        "role": "neutral",
+        "displayName": "Window Rail"
+      },
+      "window-body": {
+        "role": "neutral",
+        "displayName": "Window Body"
+      },
+      "window-ink": {
+        "role": "neutral",
+        "displayName": "Window Ink"
+      },
+      "window-muted": {
+        "role": "neutral",
+        "displayName": "Window Muted"
+      },
+      "window-action": {
+        "role": "primary",
+        "displayName": "Window Action"
+      },
+      "window-action-ink": {
+        "role": "neutral",
+        "displayName": "Window Action Ink"
+      }
+    },
+    "typographyMeta": {
+      "display": {
+        "displayName": "Project title",
+        "purpose": "Balanced project heading; desktop clamp with responsive overrides."
+      },
+      "lead": {
+        "displayName": "Project lede",
+        "purpose": "Short introduction beside the desktop title."
+      },
+      "headline": {
+        "displayName": "Section heading",
+        "purpose": "Reading sections, documents, and figures."
+      },
+      "summary": {
+        "displayName": "Project summary",
+        "purpose": "Larger opening paragraph in the story column."
+      },
+      "body": {
+        "displayName": "Reading body",
+        "purpose": "Ordinary paragraphs and project evidence."
+      },
+      "label": {
+        "displayName": "Mono label",
+        "purpose": "Return control and compact interface text; captions and facts have contextual sizes."
+      }
+    },
+    "shadows": [
+      {
+        "name": "dialog",
+        "value": "0 28px 70px #0009",
+        "purpose": "Broad depth behind graphite-framed application dialogs; paper reading pages remain flat."
+      }
+    ],
+    "motion": [
+      {
+        "name": "menu-entrance",
+        "value": "1.65s",
+        "purpose": "Pixel-assembly first name, surname wipe, and staggered menu choices in home-screen.js."
+      },
+      {
+        "name": "menu-display-rate",
+        "value": "30fps",
+        "purpose": "Faster stars and visible wire grid on a separate background clock."
+      },
+      {
+        "name": "project-display-rate",
+        "value": "24fps",
+        "purpose": "Selected project preview and continuing opened hero."
+      },
+      {
+        "name": "shared-clock",
+        "value": "hidden-tab / offscreen / reduced-motion",
+        "purpose": "Hidden tabs stop clocks; project heroes stop offscreen; reduced motion uses representative stills."
+      }
+    ],
+    "breakpoints": [
+      {
+        "name": "heading-and-content",
+        "value": "1100px"
+      },
+      {
+        "name": "stacked-cover",
+        "value": "960px"
+      },
+      {
+        "name": "stacked-reading",
+        "value": "760px"
+      },
+      {
+        "name": "compact-controls",
+        "value": "560px"
+      }
+    ],
+    "provenance": {
+      "sources": [
+        "portfolio.css",
+        "style.css",
+        "main.js",
+        "project-pages.js",
+        "project-data.js",
+        "home-screen.js",
+        "dialogs.css"
+      ],
+      "codeVersion": "20261112-31",
+      "tonalRamps": "Generated OKLCH ramps for documentation display; these are not additional application palette tokens.",
+      "validation": "Dialog tokens and examples refreshed from dialogs.css (unchanged from reviewed dialog version 20261112-28); framed About, Contact, and Credits received a fresh SHIP review from desktop and phone captures. JSON parse, documented token values and local example references checked for this delta; no official Stitch schema or live design-panel validation was run."
+    }
+  },
+  "components": [
+    {
+      "name": "Back to terminal",
+      "kind": "button",
+      "refersTo": "back-control",
+      "description": "Plain return control in the sticky project top bar.",
+      "html": "<button class=\"ds-back\"><svg viewBox=\"0 0 20 20\" aria-hidden=\"true\"><path d=\"M16 10H4m5-5-5 5 5 5\"/></svg>Back to terminal<kbd>Esc</kbd></button>",
+      "css": ".ds-back{display:inline-flex;align-items:center;gap:11px;padding:0;border:0;border-radius:0;background:none;color:var(--cover-ink,#f4f0e4);font:12px/1.5 var(--mono-font, 'Plex Mono', Consolas, monospace);cursor:pointer}.ds-back svg{width:19px;height:19px;fill:none;stroke:currentColor;stroke-width:1.6}.ds-back kbd{margin-left:5px;padding:1px 5px;border:1px solid #7c9378;border-bottom-width:2px;border-radius:2px;font:10px/1.5 var(--mono-font, 'Plex Mono', Consolas, monospace);color:#d1dfc8}.ds-back:hover{color:var(--cover-ink,#f4f0e4)}.ds-back:focus-visible{outline:2px solid #d5e9a5;outline-offset:5px}.ds-back:active{transform:translateY(1px)}"
+    },
+    {
+      "name": "Document link",
+      "kind": "nav",
+      "refersTo": "report-link",
+      "description": "Underlined-by-rule document row with outward arrow.",
+      "html": "<a class=\"ds-report\" href=\"assets/projects/ml-optimization-report.pdf\" target=\"_blank\" rel=\"noopener\">Optimization report<span aria-hidden=\"true\">↗</span></a>",
+      "css": ".ds-report{display:flex;align-items:center;justify-content:space-between;gap:20px;padding:17px 0;border-bottom:1px solid #8ca383;color:#164b2d;font:500 18px/1.5 var(--body-font, Plex, Arial, sans-serif);text-decoration:none}.ds-report span{font:22px/1 var(--body-font, Plex, Arial, sans-serif)}.ds-report:hover{color:#0a2c16;text-decoration:underline;text-underline-offset:4px}.ds-report:focus-visible{outline:2px solid #315e34;outline-offset:5px}"
+    },
+    {
+      "name": "Figure stage",
+      "kind": "custom",
+      "refersTo": "figure-stage",
+      "description": "Light figure backing; inline diagram is a component sample, not a replacement for a source figure.",
+      "html": "<a class=\"ds-figure\" href=\"assets/projects/hausdorff-quotient-figure.png\" target=\"_blank\" rel=\"noopener\" aria-label=\"Open full-size source figure\"><svg viewBox=\"0 0 300 160\" role=\"img\" aria-label=\"Figure stage example\"><circle cx=\"80\" cy=\"80\" r=\"46\"/><path d=\"M142 80h38m-10-8 10 8-10 8\"/><circle cx=\"230\" cy=\"80\" r=\"22\"/></svg></a>",
+      "css": ".ds-figure{display:grid;place-items:center;min-height:200px;padding:32px;background:#fff;border:1px solid #b0bba8;overflow:hidden}.ds-figure svg{width:100%;max-width:300px;height:auto;fill:none;stroke:#172c26;stroke-width:1.5}.ds-figure:focus-visible{outline:2px solid #315e34;outline-offset:5px}.ds-figure:hover{color:var(--green,#c1e99c)}"
+    },
+    {
+      "name": "Project navigation",
+      "kind": "nav",
+      "refersTo": "project-navigation",
+      "description": "Quiet previous/next navigation with title emphasis.",
+      "html": "<nav class=\"ds-navigation\" aria-label=\"Other projects\"><button><span>Previous project</span><strong>Delaunay Research</strong></button><button><span>Next project</span><strong>Overcooked AI</strong></button></nav>",
+      "css": ".ds-navigation{display:grid;grid-template-columns:1fr 1fr;gap:48px;padding:42px 0 56px;background:var(--cover,#0c1915)}.ds-navigation button{display:flex;flex-direction:column;align-items:flex-start;gap:12px;padding:0;border:0;background:none;color:var(--cover-ink,#f4f0e4);text-align:left;cursor:pointer}.ds-navigation button:last-child{align-items:flex-end;text-align:right}.ds-navigation span{font:12px/1.5 var(--mono-font, 'Plex Mono', Consolas, monospace);color:var(--accent,#d5e9a5)}.ds-navigation strong{font:500 clamp(24px,2.3vw,32px)/1.2 var(--body-font, Plex, Arial, sans-serif);letter-spacing:-.025em}.ds-navigation button:hover strong{color:#d5e9a5;text-decoration:underline;text-underline-offset:6px}.ds-navigation button:focus-visible{outline:2px solid #d5e9a5;outline-offset:5px}.ds-navigation button:active{transform:translateY(1px)}"
+    },
+    {
+      "name": "Application window",
+      "kind": "custom",
+      "refersTo": "dialog-window",
+      "description": "Graphite shell, pale title rail and dark inset pane shared by About, Contact and Credits. Native modal behavior belongs to the application.",
+      "html": "<section class=\"ds-window\" aria-labelledby=\"ds-window-title\"><header class=\"ds-window-rail\"><span>Armando Albornoz</span><button type=\"button\" aria-label=\"Close contact\">Close<svg viewBox=\"0 0 20 20\" aria-hidden=\"true\"><path d=\"m5 5 10 10M15 5 5 15\"/></svg></button></header><div class=\"ds-window-body\"><h2 id=\"ds-window-title\">Contact</h2><p>Get in touch by email or connect through my profiles.</p></div></section>",
+      "css": ".ds-window{width:min(620px,calc(100vw - 32px));max-height:calc(100dvh - 36px);padding:7px;border:1px solid #6a7567;border-radius:9px;background:#343c34;color:#e9ecda;box-shadow:0 28px 70px #0009;overflow:auto}.ds-window-rail{display:flex;align-items:center;justify-content:space-between;gap:20px;min-height:54px;padding:6px 7px 6px 18px;background:#b5bca8;color:#202d22;border:1px solid #d0d5c1;border-radius:3px 3px 0 0;font:12px/1.5 var(--mono-font,\"Plex Mono\",Consolas,monospace)}.ds-window-rail button{display:inline-flex;align-items:center;justify-content:center;gap:12px;min-width:94px;min-height:44px;padding:10px 12px;border:1px solid #52634e;border-radius:3px;background:#2c3b2d;color:#f1edda;font:12px/1.5 var(--mono-font,\"Plex Mono\",Consolas,monospace);cursor:pointer;transition:background 140ms ease}.ds-window-rail svg{width:16px;height:16px;fill:none;stroke:currentColor;stroke-width:1.7}.ds-window-rail button:hover{background:#1b2c20;color:#fff8e5}.ds-window-rail button:focus-visible{outline:2px solid #263e28;outline-offset:3px}.ds-window-rail button:active{transform:translateY(1px)}.ds-window-body{padding:32px 30px 30px;background:#0d1812;border:1px solid #4c5a49;border-top:0;border-radius:0 0 3px 3px}.ds-window-body h2{margin:0 0 28px;color:#eee7c9;font:500 42px/1.12 var(--body-font,Plex,Arial,sans-serif);letter-spacing:-.035em}.ds-window-body p{margin:0;max-width:52ch;font:16px/1.85 var(--body-font,Plex,Arial,sans-serif)}@media(max-width:560px){.ds-window{width:calc(100vw - 24px);max-height:calc(100dvh - 24px);padding:5px;border-radius:7px}.ds-window-rail{gap:10px;padding:5px 6px 5px 12px;font-size:10px}.ds-window-rail button{min-width:82px;gap:8px;font-size:11px}.ds-window-body{padding:26px 20px 22px}.ds-window-body h2{font-size:35px}}@media(prefers-reduced-motion:reduce){.ds-window-rail button{transition:none}}"
+    },
+    {
+      "name": "Email action",
+      "kind": "button",
+      "refersTo": "dialog-email",
+      "description": "Amber primary contact action with a mail icon and outward arrow; social links remain secondary.",
+      "html": "<a class=\"ds-email\" href=\"mailto:albornoz.armando31416@gmail.com\"><svg viewBox=\"0 0 24 24\" aria-hidden=\"true\"><rect x=\"3\" y=\"5\" width=\"18\" height=\"14\" rx=\"2\"/><path d=\"m4 7 8 6 8-6\"/></svg><span><span class=\"ds-email-label\">Email</span><span class=\"ds-email-value\">albornoz.armando31416@<wbr>gmail.com</span></span><svg viewBox=\"0 0 24 24\" aria-hidden=\"true\"><path d=\"M7 17 17 7M7 7h10v10\"/></svg></a>",
+      "css": ".ds-email{display:grid;grid-template-columns:26px minmax(0,1fr) 20px;align-items:center;gap:16px;min-height:100px;padding:21px 20px;border:1px solid #e7dbaa;border-radius:3px;background:#dfcb91;color:#182b1c;text-decoration:none;transition:background 140ms ease}.ds-email svg{width:26px;height:26px;fill:none;stroke:currentColor;stroke-width:1.5}.ds-email svg:last-child{width:20px;height:20px}.ds-email-label{display:block;margin-bottom:6px;color:#304733;font:12px/1.5 var(--mono-font,\"Plex Mono\",Consolas,monospace)}.ds-email-value{display:block;overflow-wrap:anywhere;font:500 17px/1.6 var(--body-font,Plex,Arial,sans-serif);letter-spacing:-.01em}.ds-email:hover{background:#ecdcac}.ds-email:focus-visible{outline:2px solid #f3df9d;outline-offset:4px}@media(max-width:560px){.ds-email{grid-template-columns:23px minmax(0,1fr) 16px;gap:12px;padding:18px 14px}.ds-email svg{width:23px;height:23px}.ds-email svg:last-child{width:16px;height:16px}.ds-email-value{font-size:16px}}@media(prefers-reduced-motion:reduce){.ds-email{transition:none}}"
+    }
+  ],
+  "narrative": {
+    "northStar": "The Personal Research Terminal",
+    "overview": "A physical vintage computer establishes the identity. The charcoal studio, phosphor display, pixel wordmark, and tactile keyboard make navigation feel like using a small personal machine. Project pages extend that character with a dark split cover pairing the title and live artwork, then a full-width warm-paper reading chapter with carefully set type and spacious source figures.\n\nAbout, Contact, and Credits appear as compact application windows with a graphite hardware frame, pale title rail, dark inset pane, and an amber email action. Plain paper sheets and generic green panels are rejected for these dialogs.\n\nThe hierarchy stays direct: the terminal leads the main page; the work leads each project page. Motion illustrates the subject and connects the CRT to the opened page. Copy remains concise and factual, with source captions and credits where they are needed.",
+    "keyCharacteristics": [
+      "Physical computer and pixel CRT identity.",
+      "Dark live-art covers and warm paper with dark green ink for sustained reading.",
+      "Locally hosted Plex typography with distinct reading and control roles.",
+      "Continuing project animation and restrained interface chrome.",
+      "Hardware-framed dialogs with a pale rail and amber primary action."
+    ],
+    "rules": [
+      {
+        "name": "The Surface Rule",
+        "body": "Keep long project reading on paper; keep pixel navigation inside the terminal display.",
+        "section": "colors"
+      },
+      {
+        "name": "The Type Role Rule",
+        "body": "Use Plex Sans for reading, Plex Mono for controls and facts, and pixel lettering for the CRT identity.",
+        "section": "typography"
+      }
+    ],
+    "dos": [
+      "Do preserve the physical terminal and pixel CRT identity.",
+      "Do keep reading hierarchy in Plex Sans and controls in Plex Mono.",
+      "Do preserve source captions, credits, and truthful project status.",
+      "Do continue the selected animation into the project hero and honor reduced motion."
+    ],
+    "donts": [
+      "Don't add decorative slogans, repeated labels, or filler sections.",
+      "Don't invent project results or present illustrative scenes as experiment recordings.",
+      "Don't replace the preserved ML decision-field animation.",
+      "Don't add metric cards or floating shadows to the paper reading pages."
+    ]
+  }
+}

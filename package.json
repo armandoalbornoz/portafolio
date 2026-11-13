@@ -1,35 +1,12 @@
 {
-    "name": "portafolio_website",
-    "private": true,
-    "version": "1.0.0",
-    "description": "Multi-page Vite portfolio site with three HTML entry points and shared CSS/JS under assets.",
-    "keywords": [],
-    "author": "",
-    "license": "ISC",
-    "devDependencies": {
-        "autoprefixer": "^10.4.21",
-        "cssnano": "^7.1.2",
-        "eslint": "^9.38.0",
-        "eslint-config-prettier": "^10.1.8",
-        "eslint-plugin-import": "^2.32.0",
-        "eslint-plugin-n": "^17.23.1",
-        "eslint-plugin-promise": "^7.2.1",
-        "postcss": "^8.5.6",
-        "prettier": "^3.6.2",
-        "vite": "^7.1.12"
-    },
-    "scripts": {
-        "sync:static": "node scripts/sync-static.mjs",
-        "preview": "node node_modules/vite/bin/vite.js preview",
-        "build": "node scripts/sync-static.mjs && node node_modules/vite/bin/vite.js build",
-        "lint": "node node_modules/eslint/bin/eslint.js \"assets/**/*.{js,ts}\"",
-        "format": "prettier --write \"**/*.{js,css,html,json,md}\"",
-        "lint:fix": "node node_modules/eslint/bin/eslint.js \"assets/**/*.{js,ts}\" --fix",
-        "dev": "node scripts/sync-static.mjs && node node_modules/vite/bin/vite.js"
-    },
-    "dependencies": {
-        "d3": "^7.9.0",
-        "d3-delaunay": "^6.0.4",
-        "three": "^0.181.0"
-    }
+  "name": "portafolio_website",
+  "version": "2.0.0",
+  "private": true,
+  "description": "Armando Albornoz\u2019s interactive Three.js terminal portfolio.",
+  "scripts": {
+    "dev": "python3 -m http.server 5173 --bind 127.0.0.1",
+    "build": "node scripts/build.mjs",
+    "check": "node scripts/build.mjs --check",
+    "preview": "python3 -m http.server 5173 --bind 127.0.0.1 --directory dist"
+  }
 }

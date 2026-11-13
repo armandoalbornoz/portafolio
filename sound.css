@@ -1,0 +1,14 @@
+/* The speaker remains reachable after the welcome prompt disappears. */
+#sound-toggle{display:none;position:fixed;z-index:12;right:24px;bottom:24px;align-items:center;justify-content:center;gap:9px;min-width:44px;min-height:44px;padding:10px 13px;border:1px solid #697d65;background:#101b17;color:#d7e3cd;font:13px/1.5 var(--body-font)}
+.powered #sound-toggle,.project-open #sound-toggle,.directory-open #sound-toggle{display:inline-flex}
+.project-open #welcome,.directory-open #welcome{display:none}
+#sound-toggle svg{width:20px;height:20px;flex:none;stroke-width:1.5}
+#sound-toggle:hover{background:#243529;color:#f1ddb0}
+#sound-toggle:focus-visible{outline:2px solid #f3df9d;outline-offset:4px}
+#sound-toggle[aria-pressed=false]{color:#bbc8b6}
+.back-label-short{display:none}
+.project-open #sound-toggle,.directory-open #sound-toggle{top:14px;bottom:auto;padding:10px}
+.project-open #sound-toggle span,.directory-open #sound-toggle span{display:none}
+.project-open .case-topbar,.directory-open .directory-topbar{padding-right:88px}
+@media(max-width:760px){#sound-toggle{right:16px;bottom:92px;padding:10px}#sound-toggle span{display:none}.project-open #sound-toggle,.directory-open #sound-toggle{top:10px;bottom:auto}.back-label-full{display:none}.back-label-short{display:inline}.project-open .case-topbar,.directory-open .directory-topbar{padding-right:76px}}
+@media(max-width:760px){.directory-topbar{gap:12px}.directory-topbar button{max-width:calc(100% - 108px);text-align:left}}
