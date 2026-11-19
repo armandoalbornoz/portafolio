@@ -214,3 +214,21 @@ dialog button:focus-visible,dialog a:focus-visible{outline-color:#2a603d}
 }
 
 .volume-window{fill:#a454361f;stroke:#934326;stroke-width:2}.sampling-lesion{fill:#a64d2d;stroke:#eee9dd;stroke-width:1.5}
+
+/* Overcooked figures are drawn from saved experiment logs. */
+.overcooked-plots{margin:20px 0 24px;max-width:100%}
+.overcooked-training{display:block;width:100%;height:auto;overflow:visible}
+.overcooked-training text{font:16px var(--body-font);fill:#294535}
+.overcooked-grid{stroke:#b9c6af;stroke-width:1}
+.overcooked-curve{fill:none;stroke-width:2.5;stroke-linejoin:round;stroke-linecap:round}
+.overcooked-training .overcooked-seed-0{stroke:#205b41}
+.overcooked-training .overcooked-seed-1{stroke:#80541a;stroke-dasharray:7 4}
+.overcooked-training .overcooked-seed-2{stroke:#354b91;stroke-dasharray:2 5}
+.overcooked-legend{display:flex;flex-wrap:wrap;gap:12px 28px;margin:20px 0;font:15px/1.5 var(--body-font);color:#294535}
+.overcooked-legend span{display:inline-flex;align-items:center;gap:10px}
+.overcooked-legend span::before{content:"";width:25px;border-top:3px solid #205b41}
+.overcooked-legend .overcooked-seed-1::before{border-color:#80541a;border-top-style:dashed}
+.overcooked-legend .overcooked-seed-2::before{border-color:#354b91;border-top-style:dotted}
+.figure-visible .overcooked-training{animation:overcooked-chart-enter .65s cubic-bezier(.16,1,.3,1) both}
+@keyframes overcooked-chart-enter{from{clip-path:inset(0 0 12% 0)}to{clip-path:inset(0)}}
+@media(prefers-reduced-motion:reduce){.figure-visible .overcooked-training{animation:none}}

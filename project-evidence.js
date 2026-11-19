@@ -1,4 +1,5 @@
-import {optimizerResults,classifierResults,representationResults,reinforcementResults,planningResults,runtimeResults,hausdorffSets,hausdorffDistance,quotientDistance,lift,midpoint} from './report-data.js?v=20261113-47';
+import {overcookedResults} from './overcooked-data.js?v=20261119-02';
+import {optimizerResults,classifierResults,representationResults,reinforcementResults,planningResults,runtimeResults,hausdorffSets,hausdorffDistance,quotientDistance,lift,midpoint} from './report-data.js?v=20261119-02';
 
 const NS='http://www.w3.org/2000/svg';
 const make=(tag,cls,text)=>{const n=document.createElement(tag);if(cls)n.className=cls;if(text)n.textContent=text;return n;};
@@ -165,9 +166,50 @@ function preprocessing(root,animate){
  b.append(make('p','evidence-source','Pipeline schematic from the project configuration and updated write-up. Patch positions illustrate the method.'));
 }
 
+
+function overcookedEvidence(root){
+ const data=overcookedResults;
+ const evaluation=block(root,'Soups delivered in evaluation','Each checkpoint was evaluated over 100 consecutive episodes. Bars show the mean across the three training seeds for each layout.');
+ const chart=make('div','report-bars');
+ bars(chart,data.layouts.map(layout=>[layout.name,layout.mean]),10,value=>value.toFixed(2));evaluation.append(chart);
+ evaluation.append(make('p','figure-takeaway','Counter Circuit: 7.03 soups for seed 0; zero for seeds 1 and 2. Its average of 2.34 hides the difference between those runs.'));
+ dataTable(evaluation,['Layout','Seed 0','Seed 1','Seed 2','Mean'],data.layouts.map(layout=>[layout.name,...layout.runs.map(run=>run.evaluationMean.toFixed(2)),layout.mean.toFixed(2)]));
+ evaluation.append(make('p','evidence-source','Source: final evaluation logs, three checkpoints per layout. Values are soups per episode.'));
+
+ const learning=block(root,'Training progress','The lines show each seed separately. Each point averages 100 consecutive training episodes; the horizontal position is the midpoint of that group.');
+ const plots=make('div','overcooked-plots'),legend=make('div','overcooked-legend');
+ for(const seed of [0,1,2]){const item=make('span',`overcooked-seed-${seed}`,`Seed ${seed}`);legend.append(item);}
+ const note=make('p','evidence-explanation');
+ function draw(key){
+  const layout=data.layouts.find(layout=>layout.key===key);plots.replaceChildren();
+  for(const mobile of [false,true]){
+   const width=mobile?360:900,height=mobile?320:400,left=mobile?40:64,right=mobile?344:876,top=28,bottom=mobile?258:338;
+   const x=value=>left+(right-left)*value/3000,y=value=>bottom-(bottom-top)*value/12;
+   const plot=svg(`${layout.name}: soups delivered during training for seeds 0, 1, and 2. Each point is a 100-episode average. Exact plotted values are in the data table.`,width,height);
+   plot.classList.add(mobile?'mobile-plot':'desktop-plot','overcooked-training');
+   txt(plot,left,16,'Soups per episode',{class:'plot-axis'});
+   for(const value of [0,4,8,12]){line(plot,left,y(value),right,y(value),{class:'overcooked-grid'});txt(plot,left-10,y(value)+5,value,{'text-anchor':'end',class:'plot-tick'});}
+   for(const value of mobile?[0,1500,3000]:[0,1000,2000,3000])txt(plot,x(value),bottom+25,value.toLocaleString('en-US'),{'text-anchor':value===0?'start':value===3000?'end':'middle',class:'plot-tick'});
+   txt(plot,(left+right)/2,height-9,'Training episode',{'text-anchor':'middle',class:'plot-axis'});
+   for(const run of layout.runs){
+    const d=run.training.map(([episode,value],i)=>`${i?'L':'M'}${x(episode).toFixed(2)},${y(value).toFixed(2)}`).join(' ');
+    plot.append(svgNode('path',{d,class:`overcooked-curve overcooked-seed-${run.seed}`,'vector-effect':'non-scaling-stroke'}));
+   }
+   plots.append(plot);
+  }
+  note.textContent=key==='counter_circuit_o_1order'?'Seeds 1 and 2 stayed at zero throughout all 3,000 training episodes. Only seed 0 learned to deliver soups.':'All three seeds ended training with repeated deliveries. These are training averages; checkpoint evaluation is shown separately above.';
+  const rows=[];for(let i=0;i<30;i++)rows.push([`${i*100+1}–${(i+1)*100}`,...layout.runs.map(run=>run.training[i][1].toFixed(2))]);
+  learning.querySelector('.overcooked-training-data')?.remove();
+  const table=make('div','overcooked-training-data');dataTable(table,['Training episodes','Seed 0','Seed 1','Seed 2'],rows);learning.append(table);
+ }
+ choices(learning,'Training layout',data.layouts.map(layout=>[layout.key,layout.name]),draw);
+ learning.append(legend,plots,note);draw(data.layouts[0].key);
+ learning.append(make('p','evidence-source','Source: final training logs. All nine runs contain 3,000 episodes. Chart values average non-overlapping groups of 100 episodes.'));
+}
+
 function cooperation(root,animate){
- const b=block(root,'Actor and critic','Both agents use the same actor with their own observations. The centralized critic uses the joint state during training.');
- const s=svg('Agent one and agent two send their own observations into one shared actor and receive their own actions. A centralized critic uses the joint state during training only.',900,385);
+ const b=block(root,'Actor and critic','Both agents use the same actor with their own observations. The centralized critic receives their concatenated observations during training.');
+ const s=svg('Agent one and agent two send their own observations into one shared actor and receive their own actions. A centralized critic uses concatenated observations during training only.',900,385);
  for(const [y,name] of [[90,'Agent 1'],[230,'Agent 2']]){
   s.append(svgNode('rect',{x:35,y:y-35,width:160,height:70,class:'architecture-node'}));txt(s,115,y+7,name,{'text-anchor':'middle',class:'diagram-title'});
   s.append(svgNode('path',{d:`M195 ${y}H345V160H390`,class:'architecture-flow'}));txt(s,225,y-14,'Observation',{class:'pipeline-caption'});
@@ -175,9 +217,9 @@ function cooperation(root,animate){
   s.append(svgNode('rect',{x:760,y:y-28,width:110,height:56,class:'architecture-node'}));txt(s,815,y+6,`a${name.at(-1)}`,{'text-anchor':'middle',class:'diagram-title'});
  }
  s.append(svgNode('rect',{x:390,y:115,width:170,height:90,class:'architecture-policy'}));txt(s,475,151,'Shared actor',{'text-anchor':'middle',class:'diagram-title'});txt(s,475,179,'π(a | observation)',{'text-anchor':'middle',class:'pipeline-caption'});
- line(s,475,205,475,279,{class:'architecture-training'});s.append(svgNode('rect',{x:345,y:279,width:260,height:65,class:'architecture-critic'}));txt(s,475,306,'Centralized critic',{'text-anchor':'middle',class:'diagram-title'});txt(s,475,329,'Joint state · training only',{'text-anchor':'middle',class:'pipeline-caption'});
+ line(s,475,205,475,279,{class:'architecture-training'});s.append(svgNode('rect',{x:345,y:279,width:260,height:65,class:'architecture-critic'}));txt(s,475,306,'Centralized critic',{'text-anchor':'middle',class:'diagram-title'});txt(s,475,329,'Both observations · training only',{'text-anchor':'middle',class:'pipeline-caption'});
  s.classList.add('desktop-policy');b.append(s);
- const mobile=svg('Two agents share one actor. Their individual observations produce individual actions. The centralized critic uses the joint state during training.',360,425);mobile.classList.add('mobile-policy');
+ const mobile=svg('Two agents share one actor. Their individual observations produce individual actions. The centralized critic uses concatenated observations during training.',360,425);mobile.classList.add('mobile-policy');
  for(const [x,name] of [[20,'Agent 1'],[230,'Agent 2']]){
   mobile.append(svgNode('rect',{x,y:15,width:110,height:48,class:'architecture-node'}));txt(mobile,x+55,44,name,{'text-anchor':'middle',class:'diagram-title'});
   mobile.append(svgNode('path',{d:`M${x+55} 63V100H180V133`,class:'architecture-flow'}));
@@ -185,7 +227,7 @@ function cooperation(root,animate){
   mobile.append(svgNode('rect',{x,y:278,width:110,height:45,class:'architecture-node'}));txt(mobile,x+55,306,`${name} action`,{'text-anchor':'middle',class:'pipeline-caption'});
  }
  txt(mobile,180,90,'Individual observations',{'text-anchor':'middle',class:'pipeline-caption'});mobile.append(svgNode('rect',{x:95,y:133,width:170,height:80,class:'architecture-policy'}));txt(mobile,180,166,'Shared actor',{'text-anchor':'middle',class:'diagram-title'});txt(mobile,180,190,'Shared parameters',{'text-anchor':'middle',class:'pipeline-caption'});
- mobile.append(svgNode('rect',{x:70,y:358,width:220,height:60,class:'architecture-critic'}));txt(mobile,180,382,'Centralized critic',{'text-anchor':'middle',class:'diagram-title'});txt(mobile,180,403,'Joint state · training only',{'text-anchor':'middle',class:'pipeline-caption'});line(mobile,180,213,180,358,{class:'architecture-training'});b.append(mobile);
+ mobile.append(svgNode('rect',{x:70,y:358,width:220,height:60,class:'architecture-critic'}));txt(mobile,180,382,'Centralized critic',{'text-anchor':'middle',class:'diagram-title'});txt(mobile,180,403,'Both observations · training only',{'text-anchor':'middle',class:'pipeline-caption'});line(mobile,180,213,180,358,{class:'architecture-training'});b.append(mobile);
  const paths=[...b.querySelectorAll('.architecture-flow,.architecture-action')];animate(b,t=>paths.forEach(n=>n.style.strokeDashoffset=String(-t*45)),2);
 }
 
@@ -197,7 +239,7 @@ export function mountProjectEvidence(project){
  if(project.slug==='delaunay-research'){lifting(root,animate);runtime(root);}
  if(project.slug==='hausdorff-research')symmetry(root,animate);
  if(project.slug==='mri-stroke-segmentation')preprocessing(root,animate);
- if(project.slug==='overcooked-ai')cooperation(root,animate);
+ if(project.slug==='overcooked-ai'){overcookedEvidence(root);cooperation(root,animate);}
  function tick(now){raf=0;if(dead||document.hidden||reduced.matches||!jobs.some(j=>j.visible))return;if(!last)last=now;const delta=Math.min(.1,(now-last)/1000);if(now-last>=1000/30){clock+=delta;last=now;for(const j of jobs)if(j.visible)j.update(clock);}raf=requestAnimationFrame(tick);}
  function resume(){last=0;if(!raf&&!document.hidden&&!reduced.matches&&jobs.some(j=>j.visible))raf=requestAnimationFrame(tick);}
  const observer=new IntersectionObserver(entries=>{for(const e of entries){if(e.isIntersecting)e.target.classList.add('figure-visible');const j=jobs.find(x=>x.node===e.target);if(j)j.visible=e.isIntersecting;}resume();},{threshold:.08});

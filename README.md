@@ -34,3 +34,5 @@ the repository under `~/portfolio-backups/`. Git history and the origin remote r
 
 Before announcing the deployed site, check power-on, sound/mute, a project, a report
 and Contact on a physical phone. No site is public merely because it was built locally.
+
+The Overcooked page now contains verified final evaluation results and per-seed training plots, derived from the saved experiment CSVs. `overcooked-data.js` stores only chart data; it contains no course source code. The kitchen entrance is an illustration rather than recorded gameplay.

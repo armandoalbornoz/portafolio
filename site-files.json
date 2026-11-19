@@ -36,6 +36,7 @@
   "keyboard.js",
   "loading-screen.js",
   "main.js",
+  "overcooked-data.js",
   "portfolio.css",
   "power-button.js",
   "project-data.js",
@@ -48,6 +49,7 @@
   "sound.css",
   "sound.js",
   "style.css",
+  "vendor/THREE-LICENSE.txt",
   "vendor/addons/environments/RoomEnvironment.js",
   "vendor/addons/geometries/RoundedBoxGeometry.js",
   "vendor/addons/loaders/GLTFLoader.js",
@@ -56,7 +58,6 @@
   "vendor/addons/utils/BufferGeometryUtils.js",
   "vendor/build/three.core.js",
   "vendor/build/three.module.js",
-  "vendor/THREE-LICENSE.txt",
   "visit-state.js",
   "world.js"
 ]

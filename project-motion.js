@@ -1,5 +1,5 @@
 // Project entrances: cinematic subject scenes, plus the original ML design.
-import {drawCinematicPreview,prepareCinematicPreviews} from './project-scenes.js?v=20261113-47';
+import {drawCinematicPreview,prepareCinematicPreviews} from './project-scenes.js?v=20261119-02';
 export const prepareProjectPreviews=prepareCinematicPreviews;
 const TAU=Math.PI*2;
 const mix=(a,b,t)=>a+(b-a)*t;
@@ -24,7 +24,7 @@ function classifier(ctx,time){
 }
 
 export const previewCaptions=[
- 'Cooperative kitchen · project in progress.',
+ 'Cooperative kitchen · three layouts, three training seeds.',
  'A synthetic voxel volume is sliced to reveal an illustrative region, shown separately on the right. This is not patient data or a recorded model prediction.',
  'Animated classifier decision boundary · illustration, not recorded benchmark results.',
  'A Delaunay mesh and its vertices lift toward a paraboloid, with their planar projections below. Computational geometry illustration.',

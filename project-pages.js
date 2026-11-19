@@ -1,10 +1,14 @@
 // Reading content is drawn from the supplied résumé and project reports.
-import {mountProjectEvidence} from './project-evidence.js?v=20261113-47';
+import {mountProjectEvidence} from './project-evidence.js?v=20261119-02';
 export const caseStudies={
  'overcooked-ai':{
-  area:'Cooperative reinforcement learning',kind:'Project in progress',
-  overview:'I’m implementing multi-agent PPO in Python and PyTorch to train two agents in Overcooked.',
-  sections:[]
+  area:'Cooperative reinforcement learning',kind:'Georgia Tech · CS 7642',
+  overview:'I trained two agents to prepare and deliver soup in Overcooked using multi-agent PPO. I tested the implementation on Cramped Room, Coordination Ring, and Counter Circuit, with three training seeds for each layout.',
+  sections:[
+   {title:'Training the agents',paragraphs:['Both agents use one shared actor, which takes each agent’s own observation and chooses among six actions. A centralized critic receives their concatenated observations during training. The actor and critic each have two 128-unit hidden layers with tanh activations.','I trained a separate team for each layout and seed: 3,000 episodes per run, with a fixed 400-step horizon. PPO updates use four episodes at a time, generalized advantage estimation, and a clipped policy objective. Across the three layouts, that is nine training runs and 27,000 episodes.']},
+   {title:'Reward shaping',paragraphs:['The training reward includes intermediate bonuses for placing ingredients in a pot, picking up dishes, and collecting soup, along with cooking-start and exploration bonuses. These signals give the agents feedback before they complete a delivery.','I measured evaluation performance using soups delivered. Shaped training reward is not the evaluation score.']},
+   {title:'Evaluation',paragraphs:['I evaluated each trained checkpoint over 100 consecutive episodes, for 900 evaluation episodes in total. Cramped Room averaged 9.53 soups per episode across the three seeds, and Coordination Ring averaged 7.98.','Counter Circuit exposed a reliability problem. Seed 0 averaged 7.03 soups, but seeds 1 and 2 delivered none in evaluation and also ended training without deliveries. The three-seed average was 2.34.']}
+  ]
  },
  'mri-stroke-segmentation':{
   area:'3D medical imaging',kind:'Machine learning project',
