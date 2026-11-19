@@ -1,5 +1,5 @@
 // Original report figures where available; labelled concept diagrams otherwise.
-import {projects} from './project-data.js?v=20261119-02';
+import {projects} from './project-data.js?v=20261119-03';
 export const projectDetails=projects.map(({slug,short,caption})=>({slug,short,caption}));
 
 const reportImages=new Map();

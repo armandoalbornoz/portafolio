@@ -62,7 +62,11 @@ export function createPortfolioSound(options={}){
  function stopAmbience(){if(timer!==null)cancel(timer);timer=null;if(context)stopVoices('ambience');}
  function scheduleAmbience(){
   if(!canPlay()||!musicArmed||!['menu','carousel','reading'].includes(scene)){stopAmbience();return;}
-  if(nextBeat<context.currentTime-.18){nextBeat=context.currentTime+.08;beat=0;}
+  if(nextBeat<context.currentTime-.18){
+   // Keep the song's position when project loading delays the timer.
+   const missed=Math.ceil((context.currentTime+.08-nextBeat)/.30);
+   nextBeat+=missed*.30;beat+=missed;
+  }
   while(nextBeat<context.currentTime+.18){
    scoreStep(nextBeat,beat++);nextBeat+=.30;
   }

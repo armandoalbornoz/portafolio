@@ -1,5 +1,5 @@
 // Reading content is drawn from the supplied résumé and project reports.
-import {mountProjectEvidence} from './project-evidence.js?v=20261119-02';
+import {mountProjectEvidence} from './project-evidence.js?v=20261119-03';
 export const caseStudies={
  'overcooked-ai':{
   area:'Cooperative reinforcement learning',kind:'Georgia Tech · CS 7642',

@@ -1,7 +1,7 @@
 // Project content loads independently of the terminal's model, textures, and shaders.
-import {projects} from './project-data.js?v=20261119-02';
-import {renderProjectPage} from './project-pages.js?v=20261119-02';
-import {portfolioSound,installSoundControls} from './sound.js?v=20261119-02';
+import {projects} from './project-data.js?v=20261119-03';
+import {renderProjectPage} from './project-pages.js?v=20261119-03';
+import {portfolioSound,installSoundControls} from './sound.js?v=20261119-03';
 installSoundControls();
 const $=s=>document.querySelector(s);
 let terminalPromise,terminalRequested=false,terminalUnavailable=false,stopHero=()=>{},heroGeneration=0;
@@ -21,7 +21,7 @@ async function prepareHero(index){
  let motion;
  function tick(now){frame=0;if(generation!==heroGeneration||document.hidden||!visible||reduced.matches)return;if(!last)last=now;if(now-last>=1000/24){seconds+=Math.min(.1,(now-last)/1000);last=now;motion.drawProjectPreview(canvas.getContext('2d'),index,canvas.width,canvas.height,seconds);}frame=requestAnimationFrame(tick);}
  try{
-  motion=await import('./project-motion.js?v=20261119-02');
+  motion=await import('./project-motion.js?v=20261119-03');
   await motion.prepareProjectPreviews(index);
   if(generation!==heroGeneration)return;
   canvas.setAttribute('aria-label',motion.previewCaptions[index]);motion.drawProjectPreview(canvas.getContext('2d'),index,canvas.width,canvas.height,4.5);
@@ -36,7 +36,7 @@ function showProject(index){
 async function startTerminal(){
  portfolioSound.setScene('off'); if(terminalUnavailable){showDirectory();return;}
  document.title='Armando Albornoz — Computer Scientist';stopHero();closeDirectory();$('#project').hidden=true;document.body.classList.remove('project-open');backgroundInert(false);
- if(!terminalPromise){terminalRequested=true;terminalPromise=import('./main.js?v=20261119-02').catch(error=>{terminalUnavailable=true;terminalRequested=false;console.error('Terminal unavailable:',error.message);$('#loading').hidden=true;$('#model-needed').hidden=false;$('#directory-status').hidden=false;$('#directory-back').disabled=true;$('#directory-back').textContent='Terminal unavailable';$('#directory-back').setAttribute('aria-label','Terminal unavailable');showDirectory();});}
+ if(!terminalPromise){terminalRequested=true;terminalPromise=import('./main.js?v=20261119-03').catch(error=>{terminalUnavailable=true;terminalRequested=false;console.error('Terminal unavailable:',error.message);$('#loading').hidden=true;$('#model-needed').hidden=false;$('#directory-status').hidden=false;$('#directory-back').disabled=true;$('#directory-back').textContent='Terminal unavailable';$('#directory-back').setAttribute('aria-label','Terminal unavailable');showDirectory();});}
  return terminalPromise;
 }
 function route(){

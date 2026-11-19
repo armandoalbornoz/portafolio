@@ -1,5 +1,5 @@
 // Project entrances: cinematic subject scenes, plus the original ML design.
-import {drawCinematicPreview,prepareCinematicPreviews} from './project-scenes.js?v=20261119-02';
+import {drawCinematicPreview,prepareCinematicPreviews} from './project-scenes.js?v=20261119-03';
 export const prepareProjectPreviews=prepareCinematicPreviews;
 const TAU=Math.PI*2;
 const mix=(a,b,t)=>a+(b-a)*t;
